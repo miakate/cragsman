@@ -1,0 +1,70 @@
+//NAVBAR
+.navbar {
+  background: var(--cgsm-dark-blue);
+  padding: 35px 50px;
+
+  img {
+    width: 339px;
+    height: 56px;
+  }
+
+  ul {
+    li {
+      padding-left: 30px;
+
+      a {
+        color: var(--cgsm-white);
+        font-size: 1.25rem !important; //20px
+        font-family: 'PoppinsRegular' !important;
+        opacity: 0.83;
+      }
+
+      li:first-child {
+        padding-left: 50px;
+      }
+    }
+  }
+
+  .btn-tr {
+    font-size: 1.25rem !important; //20px
+    font-family: 'PoppinsMedium' !important;
+    border-radius: 50px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .btn-light {
+    padding: 20px 30px 15px 20px !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .btn-light {
+    padding: 15px !important;
+    font-size: 15px!important;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    img {
+      width: 200px;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .navbar {
+    padding: 10px;
+
+    img {
+      width: 200px;
+    }
+
+    .btn-light {
+      padding: 15px !important;
+      margin: 0;
+    }
+  }
+}

@@ -1,8 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
 /* Importing Variables file. */
 @import "scss/variables";
 
 /* Importing Theme file. */
 @import "scss/theme";
+
+
+//BUTTONS STYLE
+.btn:active:focus {
+  border: none !important;
+}
+
+.btn-tr {
+  background: transparent;
+  font-family: 'PoppinsMedium';
+}
+
+.btn-light {
+  background: #1B3C36 !important;
+  border-radius: 50px !important;
+  //padding: 13px 40px 5px 40px !important;
+  margin-left: 15px;
+  border: none !important;
+  color: var(--cgsm-green) !important;
+  font-family: 'PoppinsMedium';
+}
+
+//TEXT STYLE
+.text-green {
+  color: var(--cgsm-green) !important;
+}
+
+.text-white {
+  color: var(--cgsm-white) !important;
+}

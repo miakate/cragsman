@@ -1,30 +1,36 @@
 //SIZES
 h1 {
-  font-size: 4.375rem;
+  font-size: 4.375rem !important; //70px
+  font-family: 'PoppinsSemiBold';
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.5rem !important; //40px
 }
 
 h3 {
-  font-size: 2.188rem;
+  font-size: 2.188rem !important; //35px
 }
 
 h4 {
-  font-size: 1.938rem;
+  font-size: 1.938rem !important; //31px
+  font-family: 'PoppinsMedium' !important;
 }
 
 h5 {
-  font-size: 1.563rem;
+  font-size: 1.563rem !important; //25px
+  //font-family: 'PoppinsRegular' !important;
 }
 
 h6 {
-  font-size: 1.25rem;
+  font-size: 1.25rem !important; //20px
+  font-family: 'PoppinsRegular' !important;
 }
 
 p {
-  font-size: 1.125rem;
+  font-size: 1.125rem !important; //18px
+  font-family: 'PoppinsRegular' !important;
+
 }
 
 //FONTS
