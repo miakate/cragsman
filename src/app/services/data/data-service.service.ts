@@ -12,7 +12,6 @@ export class DataServiceService {
 
   getMarketData() {
     return this.http.get(env.apiUrl);
-    // return this.http.get(env.apiUrl + '/currencies/ticker?' + 'key=' + env.nomicsKey + '&ids=' + env.currencies + 'interval=1d,30d&convert=USD&per-page=100&page=1')
   }
 
 }
