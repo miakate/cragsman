@@ -7,6 +7,14 @@
 /* Importing Theme file. */
 @import "scss/theme";
 
+html {
+  width: fit-content;
+}
+
+.bg-dark-blue {
+  background: var(--cgsm-dark-blue);
+  color: var(--cgsm-white);
+}
 
 //BUTTONS STYLE
 .btn:active:focus {
@@ -21,7 +29,6 @@
 .btn-light {
   background: #1B3C36 !important;
   border-radius: 50px !important;
-  //padding: 13px 40px 5px 40px !important;
   margin-left: 15px;
   border: none !important;
   color: var(--cgsm-green) !important;

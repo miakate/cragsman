@@ -25,6 +25,11 @@
     }
   }
 
+  .btn-light {
+    width: 229px;
+    height: 54px;
+  }
+
   .btn-tr {
     font-size: 1.25rem !important; //20px
     font-family: 'PoppinsMedium' !important;
@@ -41,7 +46,7 @@
 @media only screen and (max-width: 1024px) {
   .btn-light {
     padding: 15px !important;
-    font-size: 15px!important;
+    font-size: 15px !important;
   }
 }
 

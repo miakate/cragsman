@@ -3,9 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
-
+  production: false,
+  nomicsKey: '45f03218c3ec0a53b048123ad75e01d01d8d231a',
+  // apiUrl: 'https://api.lunarcrush.com/v2/assets?data=market&type=fast&key=93vllp0nhxlvrtk8emhhar',
+  apiUrl: 'https://api.nomics.com/v1/currencies/ticker?key=45f03218c3ec0a53b048123ad75e01d01d8d231a&ids=BTC,ETH,USD,SOL,XRP,DOT,LUNA&interval=1d,7d,30d&convert=USD&per-page=100&page=1'
+}
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
@@ -14,3 +16,11 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+
+
+// API KEYS
+// bitfinexApiKey: 'onIeduN6m4epBWJcEc81nd5FSVLZJnG9uibxKUszkhM',
+// bitfinexSecretApiKey: 'b2E6RmoTCs75PSDg385YG65jnbFTkLw4QhaXJTqW3rK',
+// lunarcrush: '93vllp0nhxlvrtk8emhhar'
+// apiUrl: 'https://api.nomics.com/v1/',
+// currencies: 'BTC,ETH,USD,SOL,XRP,DOT,LUNA'

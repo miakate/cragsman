@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {DataServiceService} from "../../services/data/data-service.service";
+import {WebsocketService} from "../../services/websocket/websocket.service";
 
 @Component({
   selector: 'app-home',
@@ -6,11 +8,30 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() {
+
+  public marketData: any;
+
+  constructor(
+    private ds: DataServiceService,
+    private ws: WebsocketService,
+  ) {
   }
 
   ngOnInit(): void {
+    this.ds.getMarketData().subscribe((data: any) => {
+      this.marketData = data
+      console.log(this.marketData)
+    });
+  }
 
+  scroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
+
+  numberWithCommas(x) {
+    let parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return parts.join(".");
   }
 
 }

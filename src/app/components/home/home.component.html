@@ -1,29 +1,31 @@
-<div class="container-fluid main">
+<div class="container-fluid main bg-dark-blue w-100 p-0">
   <!--  GET STARTED-->
-  <div class="get-started min-vh-100">
-    <div class="row">
-      <div class="col-xl-6 col-lg-6 col-md-6 col-xs-12 platform mt-5">
-        <h1>All in One Platform</h1>
-        <h6>It is a long established fact that a reader will be distracted by <br>
-          the readable content of a page when looking at its layout</h6>
-        <div class="d-flex pt-5 mt-5 align-content-between">
-          <div>
-            <button type="button" class="btn btn-lg btn-success pt-3 pb-3 pl-4 pr-4">
-              Get Started <img src="assets/icons/get_started.svg">
-            </button>
-          </div>
-          <div class="pl-5">
-            <button type="button" class="btn btn-tr pt-3 pb-3 text-white">
-              <img src="assets/icons/play_video.svg"> Video
-            </button>
+  <div class="container-fluid">
+    <div class="get-started">
+      <div class="row">
+        <div class="col-md-5 col-xs-12 col-sm-12 platform pl-5">
+          <h1>All in One Platform</h1>
+          <h6 class="pt-4">It is a long established fact that a reader will be distracted by <br>
+            the readable content of a page when looking at its layout</h6>
+          <div class="d-flex pt-5 mt-5 align-content-between">
+            <div>
+              <button type="button" class="btn btn-lg btn-success">
+                Get Started <img src="assets/icons/get_started.svg" alt="get-started">
+              </button>
+            </div>
+            <div class="pl-1">
+              <button type="button" class="btn btn-tr text-white">
+                <img src="assets/icons/play_video.svg" alt="play_video"> Video
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6 col-xs-12 p-0 m-0">
-        <img src="assets/icons/chart.svg" class="w-100 pt-5">
+        <div class="col-md-7 col-xs-12 p-0 m-0">
+          <img src="assets/icons/chart.svg" class="w-100 h-100">
+        </div>
       </div>
     </div>
-    <div class="brands ">
+    <div class="brands  w-100">
       <div class="d-flex justify-content-center">
         <img src="assets/images/bitfinex.png" alt="bitfinex" height="46" width="299" class="ml-2">
         <img src="assets/images/poloniex.png" alt="poloniex" height="38" width="245" class="mt-2 ml-2">
@@ -40,44 +42,45 @@
       </div>
     </div>
   </div>
-  <!--  COINS-->
-  <div class="coins pb-5 pt-5">
-    <!--    dropdown-->
-    <div class="text-white text-center justify-content-center pb-5">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-          Bitcoin
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-around text-white">
-      <div class="coin-container p-4">
-        <h3>56.845 BTC</h3>
-      </div>
-      <div class="coin-container p-4">
-        <h3>56.845 BTC</h3>
-      </div>
-      <div class="coin-container p-4">
-        <h3 class="text-white">56.845 BTC</h3>
-      </div>
-      <div class="coin-container p-4">
-        <h3>56.845 BTC</h3>
-      </div>
-    </div>
-    <div class="text-center text-white  mt-5">
-      <p>See more</p>
-    </div>
-
+  <!--COINS-->
+  <div class="container coins pb-5 pt-5">
+    <table mdbTable class="z-depth-1 text-white table table-hover">
+      <thead>
+      <tr>
+        <th></th>
+        <th [mdbTableSort]="marketData" sortBy="name">Symbol</th>
+        <th [mdbTableSort]="marketData" sortBy="status">Status</th>
+        <th [mdbTableSort]="marketData" sortBy="price">Price</th>
+        <th [mdbTableSort]="marketData" sortBy="price_change_pct">24H Change</th>
+        <!--        <th [mdbTableSort]="marketData" sortBy="volume">Volume</th>-->
+        <!--        <th [mdbTableSort]="marketData" sortBy="handle">24H Low</th>-->
+        <th [mdbTableSort]="marketData" sortBy="handle">24H Volume</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let el of marketData; let i = index">
+        <th><img [src]="el.logo_url" width="30" height="30"> {{el.name}}</th>
+        <td>{{el.symbol}} / USD</td>
+        <td>{{el.status}}</td>
+        <td>{{el.price}}</td>
+        <td>{{((el['1d'].price_change_pct * 100).toFixed(1) || 0)}} %</td>
+        <!--        <td>{{el.volume}}</td>-->
+        <!--        <td>{{el.handle}}</td>-->
+        <td>{{el['1d'].price_change}}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
+
+  <div class="d-flex align-items-center justify-content-center scroll-down">
+    <a class="text-center" (click)="scroll(target)">
+      <h6>See more</h6>
+      <img src="./assets/icons/chevron-down.svg" alt="down">
+    </a>
+  </div>
+
   <!--  FEATURES-->
-  <div class="features justify-content-center align-items-center">
+  <div class="features justify-content-center align-items-center w-100 pt-5 pb-5" #target>
     <div class="text-center pb-4 w-50 m-auto">
       <h2 class="m-0 pb-4">Our Features</h2>
       <p class="text-start ml-5">It is a long established fact that a reader will be distracted by the readable
@@ -138,26 +141,17 @@
       </div>
     </div>
   </div>
-  <!--  HOUR VOLUME-->
-  <!--  <div class="hour-volume p-5">-->
-  <!--    <div class="d-flex justify-content-around text-white">-->
-  <!--      <div>-->
-  <!--        <h5>24 Hour Volume</h5>-->
-  <!--        <h1>$1,350,427,558</h1>-->
-  <!--      </div>-->
-  <!--      <div>-->
-  <!--        <h5>24 Hour Volume</h5>-->
-  <!--        <h1>$1,350,427,558</h1>-->
-  <!--      </div>-->
-  <!--      <div>-->
-  <!--        <h5>24 Hour Volume</h5>-->
-  <!--        <h1>$1,350,427,558</h1>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--  NEWS-->
-  <div class="news pb-5">
-    <div class="text-center pb-4 w-50 m-auto">
+
+  <!--  VOLUME-->
+  <div class="d-flex justify-content-around hour-volume pt-4 pb-4 m-0">
+    <div *ngFor="let el of marketData">
+      <h5>24h Volume</h5>
+      <h5>{{numberWithCommas(el['1d'].volume).slice(0, -7)}} {{el.currency}}</h5>
+    </div>
+  </div>
+  <!--NEWS-->
+  <div class="news pt-5 pb-5 w-100">
+    <div class=" text-center pb-4 w-50 m-auto">
       <h2 class="m-0 pb-4">News</h2>
       <p class="text-start ml-5">It is a long established fact that a reader will be distracted by the readable
         content<br>
@@ -166,8 +160,6 @@
     <div class="d-flex pb-5">
       <div class="w-50 p-5 news-img">
         <img src="assets/images/earth.png" class="w-100">
-        <!--        <img src="assets/images/earth.png" alt="Snow" style="width:150px">-->
-
       </div>
       <div class="w-50 p-5">
         <h2>Lorem Ipsum is simply dummy text of the printing</h2>

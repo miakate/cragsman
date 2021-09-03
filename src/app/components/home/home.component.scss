@@ -1,7 +1,6 @@
-.container-fluid {
-  background: var(--cgsm-dark-blue);
-  color: var(--cgsm-white);
+.main {
   width: 100% !important;
+  padding-top: 3rem;
 
   .get-started {
     padding-top: 3%;
@@ -11,7 +10,7 @@
     }
 
     .platform {
-      padding: 12% 0px 30px 89px;
+      margin-top: 17rem;
 
       .btn {
         font-size: 1.938rem !important; //31px
@@ -22,19 +21,24 @@
       .btn-success {
         color: var(--cgsm-dark-blue);
         background-color: var(--cgsm-green);
+        width: 309px;
+        height: 96px;
 
         img {
           width: 43px;
           height: 43px;
+
         }
       }
 
       .btn-tr {
         margin-left: 15px;
+        height: 96px;
+        width: max-content;
+
       }
 
     }
-
 
   }
 
@@ -52,10 +56,11 @@
       }
     }
 
-    .dropdown-toggle {
-      background-color: transparent;
-      font-size: 1.563rem !important; //25px
-      font-family: 'PoppinsRegular' !important;
+  }
+
+  .scroll-down {
+    img {
+      color: var(--cgsm-white);
     }
   }
 
@@ -70,8 +75,8 @@
   }
 
   .hour-volume {
-    background: var(--cgsm-dark-blue);
-
+    background-color: #242B34;
+    opacity: 0.95;
     h1 {
       font-size: 3.125rem !important;
     }
@@ -86,9 +91,7 @@
       opacity: 0.66;
     }
 
-
     .align-bottom {
-
       vertical-align: bottom;
 
     }
@@ -96,6 +99,14 @@
 
 }
 
-img {
-  border: 40px soild var(--cgsm-white) !important;
+@media only screen and (max-width: 1200px) {
+  .platform {
+    margin-top: 5rem !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html, body {
+    width: min-content !important;
+  }
 }
