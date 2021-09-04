@@ -14,4 +14,9 @@ export class DataServiceService {
     return this.http.get(env.apiUrl);
   }
 
+  getData() {
+    return this.http.get(env.url);
+
+  }
+
 }

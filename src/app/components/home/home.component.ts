@@ -22,6 +22,9 @@ export class HomeComponent implements OnInit {
       this.marketData = data
       console.log(this.marketData)
     });
+    this.ds.getData().subscribe((data: any) => {
+      console.log(data)
+    });
   }
 
   scroll(el: HTMLElement) {
