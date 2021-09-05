@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {DataServiceService} from "../../services/data/data-service.service";
 import {WebsocketService} from "../../services/websocket/websocket.service";
+import {MdbTableDirective, MdbTablePaginationComponent} from "angular-bootstrap-md";
 
 @Component({
   selector: 'app-home',
@@ -9,24 +10,43 @@ import {WebsocketService} from "../../services/websocket/websocket.service";
 })
 export class HomeComponent implements OnInit {
 
-  public marketData: any;
+  @ViewChild(MdbTablePaginationComponent, {static: true}) mdbTablePagination: MdbTablePaginationComponent;
+  @ViewChild(MdbTableDirective, {static: true}) mdbTable: MdbTableDirective
+  elements: any = [];
+  previous: any = [];
+  headElements = ['ID', 'First', 'Last', 'Handle'];
 
-  constructor(
-    private ds: DataServiceService,
-    private ws: WebsocketService,
-  ) {
+  constructor(private cdRef: ChangeDetectorRef, private ds: DataServiceService, public ws: WebsocketService,) {
   }
 
-  ngOnInit(): void {
-    this.ds.getMarketData().subscribe((data: any) => {
-      this.marketData = data
-      console.log(this.marketData)
-    });
-    this.ds.getData().subscribe((data: any) => {
-      console.log(data)
-    });
+  ngOnInit() {
+    for (let i = 1; i <= 15; i++) {
+      this.elements.push({id: i.toString(), first: 'User ' + i, last: 'Name ' + i, handle: 'Handle ' + i});
+    }
+    this.ws.getWsData();
+    this.mdbTable.setDataSource(this.elements);
+    this.elements = this.mdbTable.getDataSource();
+    this.previous = this.mdbTable.getDataSource();
   }
 
+  ngAfterViewInit() {
+    this.mdbTablePagination.setMaxVisibleItemsNumberTo(10);
+
+    this.mdbTablePagination.calculateFirstItemIndex();
+    this.mdbTablePagination.calculateLastItemIndex();
+    this.cdRef.detectChanges();
+  }
+
+  // constructor(
+
+  // ) {
+  // }
+  //
+  // ngOnInit(): void {
+  //   this.ws.getWsData();
+  //   // console.log(this.ws.data)
+  // }
+  //
   scroll(el: HTMLElement) {
     el.scrollIntoView();
   }

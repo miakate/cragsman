@@ -44,33 +44,62 @@
   </div>
   <!--COINS-->
   <div class="container coins pb-5 pt-5">
-    <table mdbTable class="z-depth-1 text-white table table-hover">
-      <thead>
-      <tr>
-        <th></th>
-        <!--        <th [mdbTableSort]="marketData" sortBy="name">Symbol</th>-->
-        <th>Symbol</th>
-        <th>Status</th>
-        <th>Price</th>
-        <th>24H Change</th>
-        <!--        <th [mdbTableSort]="marketData" sortBy="volume">Volume</th>-->
-        <!--        <th [mdbTableSort]="marketData" sortBy="handle">24H Low</th>-->
-        <th>24H Volume</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let el of marketData; let i = index">
-        <th><img [src]="el.logo_url" width="30" height="30"> {{el.name}}</th>
-        <td>{{el.symbol}} / USD</td>
-        <td>{{el.status}}</td>
-        <td>{{el.price}}</td>
-        <td>{{((el['1d'].price_change_pct * 100).toFixed(1) || 0)}} %</td>
-        <!--        <td>{{el.volume}}</td>-->
-        <!--        <td>{{el.handle}}</td>-->
-        <td>{{el['1d'].price_change}}</td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="container">
+      <table mdbTable #tableEl="mdbTable" class="z-depth-1 text-white" id="tableSortExample">
+        <thead>
+        <tr>
+          <th [mdbTableSort]="ws.data" sortBy="n">ID</th>
+          <th [mdbTableSort]="ws.data" sortBy="s">First</th>
+          <th [mdbTableSort]="ws.data" sortBy="d">Last</th>
+          <th [mdbTableSort]="ws.data" sortBy="vt">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let el of ws.data; let i = index">
+          <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
+              scope="row">{{el.n}}</th>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.s}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.vt}}</td>
+          <td
+            *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.d}}</td>
+        </tr>
+        </tbody>
+        <tfoot class="grey lighten-5 w-100">
+        <tr>
+          <td colspan="4">
+            <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <!--    <table mdbTable class="z-depth-1 text-white table table-hover">-->
+    <!--      <thead>-->
+    <!--      <tr>-->
+    <!--        <th></th>-->
+    <!--        &lt;!&ndash;        <th [mdbTableSort]="marketData" sortBy="name">Symbol</th>&ndash;&gt;-->
+    <!--        <th>Symbol</th>-->
+    <!--        <th>Status</th>-->
+    <!--        <th>Price</th>-->
+    <!--        <th>24H Change</th>-->
+    <!--        &lt;!&ndash;        <th [mdbTableSort]="marketData" sortBy="volume">Volume</th>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <th [mdbTableSort]="marketData" sortBy="handle">24H Low</th>&ndash;&gt;-->
+    <!--        <th>24H Volume</th>-->
+    <!--      </tr>-->
+    <!--      </thead>-->
+    <!--      <tbody>-->
+    <!--      <tr *ngFor="let el of ws.data ; let i = index">-->
+    <!--        &lt;!&ndash;        <th><img [src]="el.logo_url" width="30" height="30"> {{el.name}}</th>&ndash;&gt;-->
+    <!--        <td>{{el.n}} / USD</td>-->
+    <!--&lt;!&ndash;        <td>{{el.s}}</td>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <td>{{el.price}}</td>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <td>{{((el['1d'].price_change_pct * 100).toFixed(1) || 0)}} %</td>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <td>{{el.volume}}</td>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <td>{{el.handle}}</td>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <td>{{el['1d'].price_change}}</td>&ndash;&gt;-->
+    <!--      </tr>-->
+    <!--      </tbody>-->
+    <!--    </table>-->
   </div>
 
   <div class="d-flex align-items-center justify-content-center scroll-down">
@@ -145,10 +174,10 @@
 
   <!--  VOLUME-->
   <div class="d-flex justify-content-around hour-volume pt-4 pb-4 m-0">
-    <div *ngFor="let el of marketData">
-      <h5>24h Volume</h5>
-      <h5>{{numberWithCommas(el['1d'].volume).slice(0, -7)}} {{el.currency}}</h5>
-    </div>
+    <!--    <div *ngFor="let el of ws.data">-->
+    <!--      <h5>24h Volume</h5>-->
+    <!--      <h5>{{numberWithCommas(el['1d'].volume).slice(0, -7)}} {{el.currency}}</h5>-->
+    <!--    </div>-->
   </div>
   <!--NEWS-->
   <div class="news pt-5 pb-5 w-100">
