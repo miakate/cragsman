@@ -17,7 +17,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.ds.getExchangeData().subscribe((data: any) => {
       this.exchangeData = data;
-      console.log(this.exchangeData)
+      // console.log(this.exchangeData)
+    })
+    this.ds.getMarketData().subscribe((data: any) => {
+      console.log(data, 'data from nomics')
     })
   }
 

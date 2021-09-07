@@ -27,7 +27,6 @@
         img {
           width: 43px;
           height: 43px;
-
         }
       }
 
@@ -35,27 +34,19 @@
         margin-left: 15px;
         height: 96px;
         width: max-content;
-
       }
-
     }
 
   }
 
-  .coins {
-    .coin-container {
-      //border: 1px solid var(--cgsm-light-green);
-      border: 1px solid #F3BA2F;
-      border-radius: 21px;
-      opacity: 0.15;
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-
-      h5 {
-        color: white !important;
-      }
+  .exchanges {
+    img {
+      margin: 15px;
     }
+  }
 
+  .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    color: #c2c0c0;
   }
 
   .scroll-down {
@@ -77,6 +68,7 @@
   .hour-volume {
     background-color: #242B34;
     opacity: 0.95;
+
     h1 {
       font-size: 3.125rem !important;
     }

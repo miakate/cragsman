@@ -25,25 +25,25 @@
         </div>
       </div>
     </div>
-    <div class="brands  w-100">
-      <div class="d-flex justify-content-center">
-        <img src="assets/images/bitfinex.png" alt="bitfinex" height="46" width="299" class="ml-2">
-        <img src="assets/images/poloniex.png" alt="poloniex" height="38" width="245" class="mt-2 ml-2">
-        <img src="assets/images/cexio.png" alt="cexio" height="43" width="164" class="ml-2 mt-1">
-        <img src="assets/images/hitbtc.png" alt="hitbtc" height="74" width="231" class="ml-2 mb-3">
-        <img src="assets/images/huobi.png" alt="huobi" height="46" width="154" class="ml-2 mt-1">
-        <img src="assets/images/zbcom.png" alt="zbcom" height="70" width="183" class="ml-2 mb-3">
+    <div class="exchanges w-100">
+      <div class="d-flex justify-content-center justify-content-lg-center">
+        <img src="assets/images/bitfinex.png" alt="bitfinex" class="ml-2">
+        <img src="assets/images/poloniex.png" alt="poloniex" class="mt-2 ml-2">
+        <img src="assets/images/cexio.png" alt="cexio" class="ml-2 mt-1">
+        <img src="assets/images/Hitbtc.png" alt="hitbtc" class="ml-2 mb-3">
+        <img src="assets/images/huobi.png" alt="huobi" class="ml-2 mt-1">
+        <img src="assets/images/zbcom.png" alt="zbcom" class="ml-2 mb-3">
       </div>
       <div class="d-flex justify-content-center">
-        <img src="assets/images/bithumb.png" alt="bithumb" height="70" width="278">
-        <img src="assets/images/coinbase.png" alt="coinbase" height="90" width="318">
-        <img src="assets/images/binance.png" alt="binance" height="70" width="318">
-        <img src="assets/images/bittrex.png" alt="bittrex" height="70" width="297">
+        <img src="assets/images/bithub.png" alt="bithumb">
+        <img src="assets/images/coinbase.png" alt="coinbase">
+        <img src="assets/images/binnance.png" alt="binance">
+        <img src="assets/images/bittrex.png" alt="bittrex">
       </div>
     </div>
   </div>
   <!--COINS-->
-  <div class="container-fluid coins pb-5 pt-5">
+  <div class="container-fluid pb-5 pt-5">
     <!--    <div class="data-table p-5 ">-->
     <!--      <table mdbTable #tableEl="mdbTable" class="z-depth-1 text-white" id="tableSortExample">-->
     <!--        <thead>-->
@@ -92,7 +92,7 @@
     <!--    </div>-->
 
     <div class="exchange-table m-5">
-      <table class="table text-white">
+      <table class="table table-hover text-white">
         <thead>
         <tr>
           <th scope="col"></th>
@@ -201,20 +201,20 @@
   </div>
 
   <!--  VOLUME-->
-  <div class="d-flex justify-content-around hour-volume pt-4 pb-4 m-0">
-    <div>
+  <div class="container-fluid hour-volume row pl-5 pr-5 pt-4 pb-3 m-0">
+    <div class="col-md-3" align="center">
       <h6>24h Volume</h6>
-      <h5>{{nFormatter(exchangeData.data.global['1d_volume'])}}</h5>
+      <h5>{{exchangeData.data.global['1d_volume']}}</h5>
     </div>
-    <div>
+    <div class="col-md-3" align="center">
       <h6>24h Trades</h6>
       <h5>{{nFormatter(exchangeData.data.global['1d_trades'])}}</h5>
     </div>
-    <div>
+    <div class="col-md-3" align="center">
       <h6>30D Volume</h6>
       <h5>{{nFormatter(exchangeData.data.global['30d_volume'])}}</h5>
     </div>
-    <div>
+    <div class="col-md-3" align="center">
       <h6>30D Trades</h6>
       <h5>{{nFormatter(exchangeData.data.global['30d_trades'])}}</h5>
     </div>
