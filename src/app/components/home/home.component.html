@@ -3,9 +3,10 @@
   <div class="container-fluid">
     <div class="get-started">
       <div class="row">
-        <div class="col-md-5 col-xs-12 col-sm-12 platform pl-5">
+        <div
+          class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 d-flex flex-column justify-content-center platform pl-5">
           <h1>All in One Platform</h1>
-          <h6 class="pt-4">It is a long established fact that a reader will be distracted by <br>
+          <h6 class="pt-4">It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout</h6>
           <div class="d-flex pt-5 mt-5 align-content-between">
             <div>
@@ -20,7 +21,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-7 col-xs-12 p-0 m-0">
+        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-1 p-0 m-0">
           <img src="assets/icons/chart.svg" class="w-100 h-100">
         </div>
       </div>
@@ -44,53 +45,6 @@
   </div>
   <!--COINS-->
   <div class="container-fluid pb-5 pt-5">
-    <!--    <div class="data-table p-5 ">-->
-    <!--      <table mdbTable #tableEl="mdbTable" class="z-depth-1 text-white" id="tableSortExample">-->
-    <!--        <thead>-->
-    <!--        &lt;!&ndash;        <tr>&ndash;&gt;-->
-    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="n">Name</th>&ndash;&gt;-->
-    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="s">Symbol</th>&ndash;&gt;-->
-    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="p">Price</th>&ndash;&gt;-->
-    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="p_btc">Price(BTC)</th>&ndash;&gt;-->
-    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="v">Volume(USD)</th>&ndash;&gt;-->
-    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="pch">Percent Change (1 Hour)</th>&ndash;&gt;-->
-    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="pc">Percent Change(24h)</th>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        </tr>  &ndash;&gt;-->
-    <!--        <tr>-->
-    <!--          <th>Name</th>-->
-    <!--          <th>Symbol</th>-->
-    <!--          <th>Price</th>-->
-    <!--          <th>Price(BTC)</th>-->
-    <!--          <th>Volume(USD)</th>-->
-    <!--          <th>Percent Change (1 Hour)</th>-->
-    <!--          <th>Percent Change(24h)</th>-->
-    <!--        </tr>-->
-    <!--        </thead>-->
-    <!--        <tbody>-->
-    <!--        <tr *ngFor="let el of ws.data; let i = index">-->
-    <!--          <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.n}}</th>-->
-    <!--          <td-->
-    <!--            *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.s}}</td>-->
-    <!--          <td-->
-    <!--            *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{numberWithCommas(el.p)}}</td>-->
-    <!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{(el.p_btc)}}-->
-    <!--          </td>-->
-    <!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.v}}</td>-->
-    <!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"-->
-    <!--              [ngClass]="{'text-success':el.pch > 0,'text-danger':el.pch < 0}">{{el.pch}}</td>-->
-    <!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.pc}}</td>-->
-    <!--        </tr>-->
-    <!--        </tbody>-->
-    <!--        <tfoot class="grey lighten-5 w-100">-->
-    <!--        <tr>-->
-    <!--          <td colspan="7">-->
-    <!--            <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="ws.data"></mdb-table-pagination>-->
-    <!--          </td>-->
-    <!--        </tr>-->
-    <!--        </tfoot>-->
-    <!--      </table>-->
-    <!--    </div>-->
-
     <div class="exchange-table m-5">
       <table class="table table-hover text-white">
         <thead>
@@ -129,8 +83,8 @@
       </table>
     </div>
   </div>
-
-  <div class="d-flex align-items-center justify-content-center scroll-down">
+  <!--CROLL DOWN-->
+  <div class="d-flex align-items-center justify-content-center scroll-down pt-5">
     <a class="text-center" (click)="scroll(target)">
       <h6>See more</h6>
       <img src="./assets/icons/chevron-down.svg" alt="down">
@@ -142,7 +96,7 @@
     <div class="text-center pb-4 w-50 m-auto">
       <h2 class="m-0 pb-4">Our Features</h2>
       <p class="text-start ml-5">It is a long established fact that a reader will be distracted by the readable
-        content<br>
+        content
         of a page when looking at its layout. The point of using Lorem Ipsum</p>
     </div>
 
@@ -219,6 +173,7 @@
       <h5>{{nFormatter(exchangeData.data.global['30d_trades'])}}</h5>
     </div>
   </div>
+
   <!--NEWS-->
   <div class="news pt-5 pb-5 w-100">
     <div class=" text-center pb-4 w-50 m-auto">
