@@ -14,6 +14,10 @@ export class DataServiceService {
     return this.http.get(env.apiUrl);
   }
 
+  getExchangeData() {
+    return this.http.get(env.exchangeUrl);
+  }
+
   getData() {
     return this.http.get(env.url);
 

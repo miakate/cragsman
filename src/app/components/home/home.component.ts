@@ -1,7 +1,6 @@
 import {ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {DataServiceService} from "../../services/data/data-service.service";
 import {WebsocketService} from "../../services/websocket/websocket.service";
-import {MdbTableDirective, MdbTablePaginationComponent} from "angular-bootstrap-md";
 
 @Component({
   selector: 'app-home',
@@ -9,44 +8,19 @@ import {MdbTableDirective, MdbTablePaginationComponent} from "angular-bootstrap-
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  @ViewChild(MdbTablePaginationComponent, {static: true}) mdbTablePagination: MdbTablePaginationComponent;
-  @ViewChild(MdbTableDirective, {static: true}) mdbTable: MdbTableDirective
-  elements: any = [];
-  previous: any = [];
-  headElements = ['ID', 'First', 'Last', 'Handle'];
+  public selected: any;
+  public exchangeData: any;
 
   constructor(private cdRef: ChangeDetectorRef, private ds: DataServiceService, public ws: WebsocketService,) {
   }
 
   ngOnInit() {
-    for (let i = 1; i <= 15; i++) {
-      this.elements.push({id: i.toString(), first: 'User ' + i, last: 'Name ' + i, handle: 'Handle ' + i});
-    }
-    this.ws.getWsData();
-    this.mdbTable.setDataSource(this.elements);
-    this.elements = this.mdbTable.getDataSource();
-    this.previous = this.mdbTable.getDataSource();
+    this.ds.getExchangeData().subscribe((data: any) => {
+      this.exchangeData = data;
+      console.log(this.exchangeData)
+    })
   }
 
-  ngAfterViewInit() {
-    this.mdbTablePagination.setMaxVisibleItemsNumberTo(10);
-
-    this.mdbTablePagination.calculateFirstItemIndex();
-    this.mdbTablePagination.calculateLastItemIndex();
-    this.cdRef.detectChanges();
-  }
-
-  // constructor(
-
-  // ) {
-  // }
-  //
-  // ngOnInit(): void {
-  //   this.ws.getWsData();
-  //   // console.log(this.ws.data)
-  // }
-  //
   scroll(el: HTMLElement) {
     el.scrollIntoView();
   }
@@ -55,6 +29,23 @@ export class HomeComponent implements OnInit {
     let parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return parts.join(".");
+  }
+
+  nFormatter(num) {
+    const lookup = [
+      {value: 1, symbol: ""},
+      {value: 1e3, symbol: "k"},
+      {value: 1e6, symbol: "M"},
+      {value: 1e9, symbol: "B"},
+      {value: 1e12, symbol: "T"},
+      {value: 1e15, symbol: "P"},
+      {value: 1e18, symbol: "E"}
+    ];
+    const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+    var item = lookup.slice().reverse().find(function (item) {
+      return num >= item.value;
+    });
+    return item ? (num / item.value).toFixed(1).replace(rx, "$1") + item.symbol : "0";
   }
 
 }

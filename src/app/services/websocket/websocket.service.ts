@@ -8,31 +8,26 @@ import {HttpClient} from "@angular/common/http";
 })
 export class WebsocketService {
   public connected$ = new BehaviorSubject<boolean>(false);
-  public data: any;
-  private config = 'https://api.lunarcrush.com/v2/assets?data=market&type=fast&key=rlxr6sz0zhi58jnrs19ji5';
   public connState: boolean;
-  private source = interval(6000);
 
   constructor(private http: HttpClient) {
   }
 
   getWsData() {
-    this.source.subscribe(() => {
-      this.http.get(this.config, {observe: 'response'})
-        .pipe(first())
-        .subscribe((resp: any) => {
-          if (resp.status === 200) {
-            this.connected(true);
-            // resp => this.data = resp.body.data.slice(0, 4);
-            this.data = resp.body.data;
-            console.log(this.data)
-            return this.data;
-          } else {
-            this.connected(false);
-          }
-        })
-    });
+    // // URL connection
+    // const accountAndOrderAndTransfers = new WebSocket("wss://testnet-dex.binance.org/api/ws/tbnb1qtuf578qs9wfl0wh3vs0r5nszf80gvxd28hkrc");
+    //
+    // // Or Subscribe method
+    // const conn = new WebSocket("wss://testnet-dex.binance.org/api/ws");
+    // conn.onopen = function (evt) {
+    //   conn.send(JSON.stringify({
+    //     method: "subscribe",
+    //     topic: "accounts",
+    //     address: "tbnb1qtuf578qs9wfl0wh3vs0r5nszf80gvxd28hkrc"
+    //   }));
+    // }
   }
+
 
   connected(data: boolean) {
     this.connState = data;

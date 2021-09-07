@@ -43,63 +43,91 @@
     </div>
   </div>
   <!--COINS-->
-  <div class="container coins pb-5 pt-5">
-    <div class="container">
-      <table mdbTable #tableEl="mdbTable" class="z-depth-1 text-white" id="tableSortExample">
+  <div class="container-fluid coins pb-5 pt-5">
+    <!--    <div class="data-table p-5 ">-->
+    <!--      <table mdbTable #tableEl="mdbTable" class="z-depth-1 text-white" id="tableSortExample">-->
+    <!--        <thead>-->
+    <!--        &lt;!&ndash;        <tr>&ndash;&gt;-->
+    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="n">Name</th>&ndash;&gt;-->
+    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="s">Symbol</th>&ndash;&gt;-->
+    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="p">Price</th>&ndash;&gt;-->
+    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="p_btc">Price(BTC)</th>&ndash;&gt;-->
+    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="v">Volume(USD)</th>&ndash;&gt;-->
+    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="pch">Percent Change (1 Hour)</th>&ndash;&gt;-->
+    <!--        &lt;!&ndash;          <th [mdbTableSort]="ws.data" sortBy="pc">Percent Change(24h)</th>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        </tr>  &ndash;&gt;-->
+    <!--        <tr>-->
+    <!--          <th>Name</th>-->
+    <!--          <th>Symbol</th>-->
+    <!--          <th>Price</th>-->
+    <!--          <th>Price(BTC)</th>-->
+    <!--          <th>Volume(USD)</th>-->
+    <!--          <th>Percent Change (1 Hour)</th>-->
+    <!--          <th>Percent Change(24h)</th>-->
+    <!--        </tr>-->
+    <!--        </thead>-->
+    <!--        <tbody>-->
+    <!--        <tr *ngFor="let el of ws.data; let i = index">-->
+    <!--          <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.n}}</th>-->
+    <!--          <td-->
+    <!--            *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.s}}</td>-->
+    <!--          <td-->
+    <!--            *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{numberWithCommas(el.p)}}</td>-->
+    <!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{(el.p_btc)}}-->
+    <!--          </td>-->
+    <!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.v}}</td>-->
+    <!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"-->
+    <!--              [ngClass]="{'text-success':el.pch > 0,'text-danger':el.pch < 0}">{{el.pch}}</td>-->
+    <!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.pc}}</td>-->
+    <!--        </tr>-->
+    <!--        </tbody>-->
+    <!--        <tfoot class="grey lighten-5 w-100">-->
+    <!--        <tr>-->
+    <!--          <td colspan="7">-->
+    <!--            <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="ws.data"></mdb-table-pagination>-->
+    <!--          </td>-->
+    <!--        </tr>-->
+    <!--        </tfoot>-->
+    <!--      </table>-->
+    <!--    </div>-->
+
+    <div class="exchange-table m-5">
+      <table class="table text-white">
         <thead>
         <tr>
-          <th [mdbTableSort]="ws.data" sortBy="n">ID</th>
-          <th [mdbTableSort]="ws.data" sortBy="s">First</th>
-          <th [mdbTableSort]="ws.data" sortBy="d">Last</th>
-          <th [mdbTableSort]="ws.data" sortBy="vt">Handle</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col">Exchange</th>
+          <th scope="col">24h Volume</th>
+          <th scope="col">24h Volume Percent</th>
+          <th scope="col">24h Trades</th>
+          <th scope="col">24h Trades Percent</th>
+          <th scope="col">30D Trades</th>
+          <th scope="col">30D Trades Percent</th>
+          <th scope="col">30D Volume</th>
+          <th scope="col">30D Volume Percent</th>
+          <th scope="col">Market Pairs</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let el of ws.data; let i = index">
-          <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
-              scope="row">{{el.n}}</th>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.s}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.vt}}</td>
-          <td
-            *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.d}}</td>
+        <tr *ngFor="let data of exchangeData.data.exchanges; let i = index" class="text-center">
+          <td>{{data.rank}}</td>
+          <th><img [src]="data.logo" width="50" height="50"></th>
+          <th class="text-start"> {{data.name}}</th>
+          <td>${{nFormatter(data['1d_volume'])}}</td>
+          <td>{{(data['1d_volume_percent']).toFixed(2)}} %</td>
+          <td>{{nFormatter(data['1d_trades'])}}</td>
+          <td>{{(data['1d_trades_percent']).toFixed(2)}} %</td>
+          <td>{{nFormatter(data['30d_trades'])}}</td>
+          <td>{{(data['30d_trades_percent']).toFixed(2)}} %</td>
+          <td>${{nFormatter(data['30d_volume'])}}</td>
+          <!--          [ngClass]="{'text-success':data['30d_volume_percent'] > 0,'text-danger':data['30d_volume_percent'] < 0}"-->
+          <td>{{(data['30d_volume_percent']).toFixed(2)}} %</td>
+          <td>{{numberWithCommas(data.num_pairs)}}</td>
         </tr>
         </tbody>
-        <tfoot class="grey lighten-5 w-100">
-        <tr>
-          <td colspan="4">
-            <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
-          </td>
-        </tr>
-        </tfoot>
       </table>
     </div>
-    <!--    <table mdbTable class="z-depth-1 text-white table table-hover">-->
-    <!--      <thead>-->
-    <!--      <tr>-->
-    <!--        <th></th>-->
-    <!--        &lt;!&ndash;        <th [mdbTableSort]="marketData" sortBy="name">Symbol</th>&ndash;&gt;-->
-    <!--        <th>Symbol</th>-->
-    <!--        <th>Status</th>-->
-    <!--        <th>Price</th>-->
-    <!--        <th>24H Change</th>-->
-    <!--        &lt;!&ndash;        <th [mdbTableSort]="marketData" sortBy="volume">Volume</th>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <th [mdbTableSort]="marketData" sortBy="handle">24H Low</th>&ndash;&gt;-->
-    <!--        <th>24H Volume</th>-->
-    <!--      </tr>-->
-    <!--      </thead>-->
-    <!--      <tbody>-->
-    <!--      <tr *ngFor="let el of ws.data ; let i = index">-->
-    <!--        &lt;!&ndash;        <th><img [src]="el.logo_url" width="30" height="30"> {{el.name}}</th>&ndash;&gt;-->
-    <!--        <td>{{el.n}} / USD</td>-->
-    <!--&lt;!&ndash;        <td>{{el.s}}</td>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <td>{{el.price}}</td>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <td>{{((el['1d'].price_change_pct * 100).toFixed(1) || 0)}} %</td>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <td>{{el.volume}}</td>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <td>{{el.handle}}</td>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <td>{{el['1d'].price_change}}</td>&ndash;&gt;-->
-    <!--      </tr>-->
-    <!--      </tbody>-->
-    <!--    </table>-->
   </div>
 
   <div class="d-flex align-items-center justify-content-center scroll-down">
@@ -174,10 +202,22 @@
 
   <!--  VOLUME-->
   <div class="d-flex justify-content-around hour-volume pt-4 pb-4 m-0">
-    <!--    <div *ngFor="let el of ws.data">-->
-    <!--      <h5>24h Volume</h5>-->
-    <!--      <h5>{{numberWithCommas(el['1d'].volume).slice(0, -7)}} {{el.currency}}</h5>-->
-    <!--    </div>-->
+    <div>
+      <h6>24h Volume</h6>
+      <h5>{{nFormatter(exchangeData.data.global['1d_volume'])}}</h5>
+    </div>
+    <div>
+      <h6>24h Trades</h6>
+      <h5>{{nFormatter(exchangeData.data.global['1d_trades'])}}</h5>
+    </div>
+    <div>
+      <h6>30D Volume</h6>
+      <h5>{{nFormatter(exchangeData.data.global['30d_volume'])}}</h5>
+    </div>
+    <div>
+      <h6>30D Trades</h6>
+      <h5>{{nFormatter(exchangeData.data.global['30d_trades'])}}</h5>
+    </div>
   </div>
   <!--NEWS-->
   <div class="news pt-5 pb-5 w-100">
