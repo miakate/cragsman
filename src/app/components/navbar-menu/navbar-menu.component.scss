@@ -1,8 +1,8 @@
-//NAVBAR
+////NAVBAR
 .navbar {
-  background: var(--cgsm-dark-blue);
-  padding: 35px 50px;
-
+  //  background: var(--cgsm-dark-blue);
+  //  padding: 35px 50px;
+  //
   img {
     width: 339px;
     height: 56px;
@@ -27,7 +27,7 @@
 
   .btn-light {
     width: 229px;
-    height: 54px;
+    //height: 54px;
   }
 
   .btn-tr {
@@ -37,45 +37,52 @@
   }
 }
 
+
 @media only screen and (max-width: 1200px) {
-  .btn-light {
-    padding: 20px 30px 15px 20px !important;
+  form {
+    margin-right: 0 !important;
   }
 }
 
 @media only screen and (max-width: 1024px) {
-  .btn-light {
-    padding: 15px !important;
-    font-size: 15px !important;
+  ul {
+    li {
+      padding-left: 0 !important;
+    }
   }
-}
-
-
-@media only screen and (max-width: 768px) {
-  .navbar-dark .navbar-toggler {
-    font-size: xxx-large;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .navbar {
-    img {
-      width: 200px;
+  form {
+    .mr-3{
+      margin-right: 0 !important;
     }
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .navbar {
-    padding: 10px;
-
-    img {
-      width: 200px;
-    }
-
-    .btn-light {
-      padding: 15px !important;
-      margin: 0;
-    }
-  }
-}
+//
+//@media only screen and (max-width: 768px) {
+//  .navbar-dark .navbar-toggler {
+//    font-size: xxx-large;
+//  }
+//}
+//
+//@media only screen and (max-width: 600px) {
+//  .navbar {
+//    img {
+//      width: 200px;
+//    }
+//  }
+//}
+//
+//@media only screen and (max-width: 400px) {
+//  .navbar {
+//    padding: 10px;
+//
+//    img {
+//      width: 200px;
+//    }
+//
+//    .btn-light {
+//      padding: 15px !important;
+//      margin: 0;
+//    }
+//  }
+//}

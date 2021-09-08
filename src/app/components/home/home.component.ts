@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ws.getWsData();
     this.ds.getExchangeData().subscribe((data: any) => {
       this.exchangeData = data;
       // console.log(this.exchangeData)

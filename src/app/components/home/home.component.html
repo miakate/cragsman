@@ -1,14 +1,21 @@
-<div class="container-fluid main bg-dark-blue w-100 p-0">
+<div class="container-fluid main bg-dark-blue min-vh-100 p-0 m-0">
+  <div class="left-img">
+    <img src="assets/icons/triangle.svg" alt="triangle">
+  </div>
+  <!--  <div class="right-img">-->
+  <!--    <img src="assets/icons/circle.svg" alt="circle">-->
+  <!--  </div>-->
   <!--  GET STARTED-->
-  <div class="container-fluid">
+  <div class="container-fluid pt-5">
     <div class="get-started">
       <div class="row">
         <div
-          class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 d-flex flex-column justify-content-center platform pl-5">
+          class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 platform pl-140 ">
           <h1>All in One Platform</h1>
-          <h6 class="pt-4">It is a long established fact that a reader will be distracted by
+          <h6 class="pt-4 pr-4">It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout</h6>
-          <div class="d-flex pt-5 mt-5 align-content-between">
+
+          <div class="d-flex pt-5 mt-5 align-content-between platform-buttons">
             <div>
               <button type="button" class="btn btn-lg btn-success">
                 Get Started <img src="assets/icons/get_started.svg" alt="get-started">
@@ -21,183 +28,196 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-1 p-0 m-0">
-          <img src="assets/icons/chart.svg" class="w-100 h-100">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 pt-5 m-0 chart">
+          <img src="assets/icons/chart.svg" class="w-100">
         </div>
       </div>
     </div>
-    <div class="exchanges w-100">
-      <div class="d-flex justify-content-center justify-content-lg-center">
-        <img src="assets/images/bitfinex.png" alt="bitfinex" class="ml-2">
-        <img src="assets/images/poloniex.png" alt="poloniex" class="mt-2 ml-2">
-        <img src="assets/images/cexio.png" alt="cexio" class="ml-2 mt-1">
-        <img src="assets/images/Hitbtc.png" alt="hitbtc" class="ml-2 mb-3">
-        <img src="assets/images/huobi.png" alt="huobi" class="ml-2 mt-1">
-        <img src="assets/images/zbcom.png" alt="zbcom" class="ml-2 mb-3">
-      </div>
-      <div class="d-flex justify-content-center">
-        <img src="assets/images/bithub.png" alt="bithumb">
-        <img src="assets/images/coinbase.png" alt="coinbase">
-        <img src="assets/images/binnance.png" alt="binance">
-        <img src="assets/images/bittrex.png" alt="bittrex">
-      </div>
-    </div>
+    <!--    <div class="exchanges">-->
+    <!--      <div class="d-flex justify-content-center justify-content-lg-center">-->
+    <!--        <img src="assets/images/bitfinex.png" alt="bitfinex" class="ml-2">-->
+    <!--        <img src="assets/images/poloniex.png" alt="poloniex" class="mt-2 ml-2">-->
+    <!--        <img src="assets/images/cexio.png" alt="cexio" class="ml-2 mt-1">-->
+    <!--        <img src="assets/images/Hitbtc.png" alt="hitbtc" class="ml-2 mb-3">-->
+    <!--        <img src="assets/images/huobi.png" alt="huobi" class="ml-2 mt-1">-->
+    <!--        <img src="assets/images/zbcom.png" alt="zbcom" class="ml-2 mb-3">-->
+    <!--      </div>-->
+    <!--      <div class="d-flex justify-content-center">-->
+    <!--        <img src="assets/images/bithub.png" alt="bithumb">-->
+    <!--        <img src="assets/images/coinbase.png" alt="coinbase">-->
+    <!--        <img src="assets/images/binnance.png" alt="binance">-->
+    <!--        <img src="assets/images/bittrex.png" alt="bittrex">-->
+    <!--      </div>-->
+    <!--    </div>-->
   </div>
   <!--COINS-->
-  <div class="container-fluid pb-5 pt-5">
-    <div class="exchange-table m-5">
-      <table class="table table-hover text-white">
-        <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col">Exchange</th>
-          <th scope="col">24h Volume</th>
-          <th scope="col">24h Volume Percent</th>
-          <th scope="col">24h Trades</th>
-          <th scope="col">24h Trades Percent</th>
-          <th scope="col">30D Trades</th>
-          <th scope="col">30D Trades Percent</th>
-          <th scope="col">30D Volume</th>
-          <th scope="col">30D Volume Percent</th>
-          <th scope="col">Market Pairs</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let data of exchangeData.data.exchanges; let i = index" class="text-center">
-          <td>{{data.rank}}</td>
-          <th><img [src]="data.logo" width="50" height="50"></th>
-          <th class="text-start"> {{data.name}}</th>
-          <td>${{nFormatter(data['1d_volume'])}}</td>
-          <td>{{(data['1d_volume_percent']).toFixed(2)}} %</td>
-          <td>{{nFormatter(data['1d_trades'])}}</td>
-          <td>{{(data['1d_trades_percent']).toFixed(2)}} %</td>
-          <td>{{nFormatter(data['30d_trades'])}}</td>
-          <td>{{(data['30d_trades_percent']).toFixed(2)}} %</td>
-          <td>${{nFormatter(data['30d_volume'])}}</td>
-          <!--          [ngClass]="{'text-success':data['30d_volume_percent'] > 0,'text-danger':data['30d_volume_percent'] < 0}"-->
-          <td>{{(data['30d_volume_percent']).toFixed(2)}} %</td>
-          <td>{{numberWithCommas(data.num_pairs)}}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <!--  <div class="container-fluid pb-5 pt-5">-->
+  <!--    <div class="exchange-table m-5">-->
+  <!--      <table class="table table-hover text-white">-->
+  <!--        <thead>-->
+  <!--        <tr>-->
+  <!--          <th scope="col"></th>-->
+  <!--          <th scope="col"></th>-->
+  <!--          <th scope="col">Exchange</th>-->
+  <!--          <th scope="col">24h Volume</th>-->
+  <!--          <th scope="col">24h Volume Percent</th>-->
+  <!--          <th scope="col">24h Trades</th>-->
+  <!--          <th scope="col">24h Trades Percent</th>-->
+  <!--          <th scope="col">30D Trades</th>-->
+  <!--          <th scope="col">30D Trades Percent</th>-->
+  <!--          <th scope="col">30D Volume</th>-->
+  <!--          <th scope="col">30D Volume Percent</th>-->
+  <!--          <th scope="col">Market Pairs</th>-->
+  <!--        </tr>-->
+  <!--        </thead>-->
+  <!--        <tbody>-->
+  <!--        <tr *ngFor="let data of exchangeData.data.exchanges; let i = index" class="text-center">-->
+  <!--          <td>{{data.rank}}</td>-->
+  <!--          <th><img [src]="data.logo" width="50" height="50"></th>-->
+  <!--          <th class="text-start"> {{data.name}}</th>-->
+  <!--          <td>${{nFormatter(data['1d_volume'])}}</td>-->
+  <!--          <td>{{(data['1d_volume_percent']).toFixed(2)}} %</td>-->
+  <!--          <td>{{nFormatter(data['1d_trades'])}}</td>-->
+  <!--          <td>{{(data['1d_trades_percent']).toFixed(2)}} %</td>-->
+  <!--          <td>{{nFormatter(data['30d_trades'])}}</td>-->
+  <!--          <td>{{(data['30d_trades_percent']).toFixed(2)}} %</td>-->
+  <!--          <td>${{nFormatter(data['30d_volume'])}}</td>-->
+  <!--          &lt;!&ndash;          [ngClass]="{'text-success':data['30d_volume_percent'] > 0,'text-danger':data['30d_volume_percent'] < 0}"&ndash;&gt;-->
+  <!--          <td>{{(data['30d_volume_percent']).toFixed(2)}} %</td>-->
+  <!--          <td>{{numberWithCommas(data.num_pairs)}}</td>-->
+  <!--        </tr>-->
+  <!--        </tbody>-->
+  <!--      </table>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+
   <!--CROLL DOWN-->
-  <div class="d-flex align-items-center justify-content-center scroll-down pt-5">
-    <a class="text-center" (click)="scroll(target)">
-      <h6>See more</h6>
-      <img src="./assets/icons/chevron-down.svg" alt="down">
-    </a>
-  </div>
+  <!--  <div class="d-flex align-items-center justify-content-center scroll-down pt-5">-->
+  <!--    <a class="text-center" (click)="scroll(target)">-->
+  <!--      <h6>See more</h6>-->
+  <!--      <img src="./assets/icons/chevron-down.svg" alt="down">-->
+  <!--    </a>-->
+  <!--  </div>-->
 
-  <!--  FEATURES-->
-  <div class="features justify-content-center align-items-center w-100 pt-5 pb-5" #target>
-    <div class="text-center pb-4 w-50 m-auto">
-      <h2 class="m-0 pb-4">Our Features</h2>
-      <p class="text-start ml-5">It is a long established fact that a reader will be distracted by the readable
-        content
-        of a page when looking at its layout. The point of using Lorem Ipsum</p>
-    </div>
+  <!--  &lt;!&ndash;  FEATURES&ndash;&gt;-->
+  <!--  <div class="features justify-content-center align-items-center w-100 pt-5 pb-5" #target>-->
+  <!--    <div class="text-center pb-4 w-50 m-auto">-->
+  <!--      <h2 class="m-0 pb-4">Our Features</h2>-->
+  <!--      <p class="text-start ml-5">It is a long established fact that a reader will be distracted by the readable-->
+  <!--        content-->
+  <!--        of a page when looking at its layout. The point of using Lorem Ipsum</p>-->
+  <!--    </div>-->
 
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="d-flex m-4">
-        <div class="m-3">
-          <img src="assets/icons/eyes.svg">
-        </div>
-        <div class="m-3">
-          <h5>Our Vision</h5>
-          <p>It is a long established fact that a reader<br>
-            will be distracted by the readable content<br>
-            of a page when looking at its layout. The<br>
-            point of using Lorem Ipsum</p>
-        </div>
-      </div>
-      <div class="d-flex m-4">
-        <div class="m-3">
-          <img src="assets/icons/security.svg">
-        </div>
-        <div class="m-3">
-          <h5>Security</h5>
-          <p>It is a long established fact that a reader<br>
-            will be distracted by the readable content<br>
-            of a page when looking at its layout. The<br>
-            point of using Lorem Ipsum</p>
-        </div>
-      </div>
-    </div>
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="d-flex m-4">
-        <div class="m-3">
-          <img src="assets/icons/verification.svg">
-        </div>
-        <div class="m-3">
-          <h5>KYC/AML verification</h5>
-          <p>It is a long established fact that a reader<br>
-            will be distracted by the readable content<br>
-            of a page when looking at its layout. The<br>
-            point of using Lorem Ipsum</p>
-        </div>
-      </div>
-      <div class="d-flex m-4">
-        <div class="m-3">
-          <img src="assets/icons/coming_features.svg">
-        </div>
-        <div class="m-3">
-          <h5>Coming Features</h5>
-          <p>It is a long established fact that a reader<br>
-            will be distracted by the readable content<br>
-            of a page when looking at its layout. The<br>
-            point of using Lorem Ipsum</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--    <div class="row justify-content-center align-items-center">-->
+  <!--      <div class="col-6">-->
+  <!--        <div class="d-flex m-4">-->
+  <!--          <div class="m-3">-->
+  <!--            <img src="assets/icons/eyes.svg">-->
+  <!--          </div>-->
+  <!--          <div class="m-3">-->
+  <!--            <h5>Our Vision</h5>-->
+  <!--            <p>It is a long established fact that a reader<br>-->
+  <!--              will be distracted by the readable content<br>-->
+  <!--              of a page when looking at its layout. The<br>-->
+  <!--              point of using Lorem Ipsum</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--      <div class="col-6">-->
+  <!--        <div class="d-flex m-4">-->
+  <!--          <div class="m-3">-->
+  <!--            <img src="assets/icons/security.svg">-->
+  <!--          </div>-->
+  <!--          <div class="m-3">-->
+  <!--            <h5>Security</h5>-->
+  <!--            <p>It is a long established fact that a reader<br>-->
+  <!--              will be distracted by the readable content<br>-->
+  <!--              of a page when looking at its layout. The<br>-->
+  <!--              point of using Lorem Ipsum</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+
+  <!--    <div class="row justify-content-center align-items-center">-->
+  <!--      <div class="col-6">-->
+  <!--        <div class="d-flex m-4">-->
+  <!--          <div class="m-3">-->
+  <!--            <img src="assets/icons/verification.svg">-->
+  <!--          </div>-->
+  <!--          <div class="m-3">-->
+  <!--            <h5>KYC/AML verification</h5>-->
+  <!--            <p>It is a long established fact that a reader<br>-->
+  <!--              will be distracted by the readable content<br>-->
+  <!--              of a page when looking at its layout. The<br>-->
+  <!--              point of using Lorem Ipsum</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+
+  <!--      </div>-->
+  <!--      <div class="col-6">-->
+  <!--        <div class="d-flex m-4">-->
+  <!--          <div class="m-3">-->
+  <!--            <img src="assets/icons/coming_features.svg">-->
+  <!--          </div>-->
+  <!--          <div class="m-3">-->
+  <!--            <h5>Coming Features</h5>-->
+  <!--            <p>It is a long established fact that a reader<br>-->
+  <!--              will be distracted by the readable content<br>-->
+  <!--              of a page when looking at its layout. The<br>-->
+  <!--              point of using Lorem Ipsum</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
   <!--  VOLUME-->
-  <div class="container-fluid hour-volume row pl-5 pr-5 pt-4 pb-3 m-0">
-    <div class="col-md-3" align="center">
-      <h6>24h Volume</h6>
-      <h5>{{exchangeData.data.global['1d_volume']}}</h5>
-    </div>
-    <div class="col-md-3" align="center">
-      <h6>24h Trades</h6>
-      <h5>{{nFormatter(exchangeData.data.global['1d_trades'])}}</h5>
-    </div>
-    <div class="col-md-3" align="center">
-      <h6>30D Volume</h6>
-      <h5>{{nFormatter(exchangeData.data.global['30d_volume'])}}</h5>
-    </div>
-    <div class="col-md-3" align="center">
-      <h6>30D Trades</h6>
-      <h5>{{nFormatter(exchangeData.data.global['30d_trades'])}}</h5>
-    </div>
-  </div>
+  <!--  <div class="container-fluid hour-volume row pl-5 pr-5 pt-4 pb-3 m-0">-->
+  <!--    <div class="col-md-3 pt-3" align="center">-->
+  <!--      <h6>24h Volume</h6>-->
+  <!--      <h5>${{numberWithCommas(exchangeData.data.global['1d_volume'])}}</h5>-->
+  <!--    </div>-->
+  <!--    <div class="col-md-3 pt-3" align="center">-->
+  <!--      <h6>24h Trades</h6>-->
+  <!--      <h5>${{numberWithCommas(exchangeData.data.global['1d_trades'])}}</h5>-->
+  <!--    </div>-->
+  <!--    <div class="col-md-3 pt-3" align="center">-->
+  <!--      <h6>30D Volume</h6>-->
+  <!--      <h5>${{numberWithCommas(exchangeData.data.global['30d_volume'])}}</h5>-->
+  <!--    </div>-->
+  <!--    <div class="col-md-3 pt-3" align="center">-->
+  <!--      <h6>30D Trades</h6>-->
+  <!--      <h5>${{numberWithCommas(exchangeData.data.global['30d_trades'])}}</h5>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
   <!--NEWS-->
-  <div class="news pt-5 pb-5 w-100">
-    <div class=" text-center pb-4 w-50 m-auto">
-      <h2 class="m-0 pb-4">News</h2>
-      <p class="text-start ml-5">It is a long established fact that a reader will be distracted by the readable
-        content<br>
-        of a page when looking at its layout. The point of using Lorem Ipsum</p>
-    </div>
-    <div class="d-flex pb-5">
-      <div class="w-50 p-5 news-img">
-        <img src="assets/images/earth.png" class="w-100">
-      </div>
-      <div class="w-50 p-5">
-        <h2>Lorem Ipsum is simply dummy text of the printing</h2>
-        <h4 class="pt-4">It is a long established fact that a reader will be distracted by the readable content of a
-          page when
-          looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed</h4>
-        <div class="d-flex bd-highlight mt-5">
-          <div class="ms-auto p-2 bd-highlight align-bottom">
-            <h4>See all Blog</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--  <div class="news pt-5 pb-5 w-100">-->
+  <!--    <div class=" text-center pb-4 w-50 m-auto">-->
+  <!--      <h2 class="m-0 pb-4">News</h2>-->
+  <!--      <p class="text-start ml-5">It is a long established fact that a reader will be distracted by the readable-->
+  <!--        content<br>-->
+  <!--        of a page when looking at its layout. The point of using Lorem Ipsum</p>-->
+  <!--    </div>-->
+  <!--    <div class="d-flex pb-5">-->
+  <!--      <div class="w-50 p-5 news-img">-->
+  <!--        <img src="assets/images/earth.png" class="w-100">-->
+  <!--      </div>-->
+  <!--      <div class="w-50 p-5">-->
+  <!--        <h2>Lorem Ipsum is simply dummy text of the printing</h2>-->
+  <!--        <h4 class="pt-4">It is a long established fact that a reader will be distracted by the readable content of a-->
+  <!--          page when-->
+  <!--          looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of-->
+  <!--          letters, as opposed</h4>-->
+  <!--        <div class="d-flex bd-highlight mt-5">-->
+  <!--          <div class="ms-auto p-2 bd-highlight align-bottom">-->
+  <!--            <h4>See all Blog</h4>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 </div>

@@ -29,7 +29,7 @@ html {
 .btn-light {
   background: #1B3C36 !important;
   border-radius: 50px !important;
-  margin-left: 15px;
+  //margin-left: 15px;
   border: none !important;
   color: var(--cgsm-green) !important;
   font-family: 'PoppinsMedium';
@@ -42,4 +42,15 @@ html {
 
 .text-white {
   color: var(--cgsm-white) !important;
+}
+
+.pl-140 {
+  padding-left: 140px !important;
+}
+
+//MEDIA
+@media only screen and (max-width: 1200px) {
+  .pl-140 {
+    padding-left: 30px !important;
+  }
 }

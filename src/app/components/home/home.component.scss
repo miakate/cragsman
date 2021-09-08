@@ -1,16 +1,20 @@
 .main {
-  width: 100% !important;
-  padding-top: 3rem;
+  .left-img {
+    img {
+      position: absolute;
+      left: -40px;
+    }
+  }
 
   .get-started {
-    padding-top: 3%;
+    //margin-top: 6rem;
 
     h6 {
       opacity: 0.45;
     }
 
     .platform {
-      margin-top: 17rem;
+      margin-top: 15rem;
 
       .btn {
         font-size: 1.938rem !important; //31px
@@ -22,7 +26,7 @@
         color: var(--cgsm-dark-blue);
         background-color: var(--cgsm-green);
         width: 309px;
-        height: 96px;
+        //height: 96px;
 
         img {
           width: 43px;
@@ -32,68 +36,83 @@
 
       .btn-tr {
         margin-left: 15px;
-        height: 96px;
+        //height: 96px;
         width: max-content;
       }
     }
 
+    //.chart {
+    //  img {
+    //    width: 858px;
+    //    height: 589px;
+    //  }
+    //}
   }
 
-  .exchanges {
-    img {
-      margin: 15px;
-    }
-  }
-
-  .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    color: #c2c0c0;
-  }
-
-  .scroll-down {
-    img {
-      color: var(--cgsm-white);
-    }
-  }
-
-  .features {
-    h5 {
-      font-family: 'PoppinsMedium';
-    }
-
-    p {
-      opacity: 0.67;
-    }
-  }
-
-  .hour-volume {
-    background-color: #242B34;
-    opacity: 0.95;
-
-    h1 {
-      font-size: 3.125rem !important;
-    }
-
-    h5 {
-      font-family: 'PoppinsMedium' !important;
-    }
-  }
-
-  .news {
-    h4 {
-      opacity: 0.66;
-    }
-
-    .align-bottom {
-      vertical-align: bottom;
-
-    }
-  }
 }
 
+
+//.main {
+//  width: 100% !important;
+//  padding-top: 3rem;
+//
+
+//  .exchanges {
+//    img {
+//      margin: 15px;
+//    }
+//  }
+//
+//  .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+//    color: #c2c0c0;
+//  }
+//
+//  .scroll-down {
+//    img {
+//      color: var(--cgsm-white);
+//    }
+//  }
+//
+//  .features {
+//
+//    h5 {
+//      font-family: 'PoppinsMedium';
+//    }
+//
+//    p {
+//      opacity: 0.67;
+//    }
+//  }
+//
+//  .hour-volume {
+//    background-color: #242B34;
+//    opacity: 0.95;
+//
+//    h1 {
+//      font-size: 3.125rem !important;
+//    }
+//
+//    h5 {
+//      font-family: 'PoppinsMedium' !important;
+//    }
+//  }
+//
+//  .news {
+//    h4 {
+//      opacity: 0.66;
+//    }
+//
+//    .align-bottom {
+//      vertical-align: bottom;
+//
+//    }
+//  }
+//}
+//
 @media only screen and (max-width: 1500px) {
   .get-started {
     .platform {
-      margin-top: 13rem !important;
+      margin-top: 10rem !important;
 
       h1 {
         font-size: 3.375rem !important;
@@ -103,13 +122,74 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .platform {
-    margin-top: 5rem !important;
+  .get-started {
+    .platform {
+      padding-top: 0 !important;
+    }
+
+    .chart {
+      margin-top: 6rem !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .get-started {
+    .platform {
+      h1 {
+        font-size: 2.375rem !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .get-started {
+    .platform {
+      text-align: center !important;
+
+      h1 {
+        font-size: 4.375rem !important;
+
+      }
+
+      h6 {
+        padding-right: 50px;
+      }
+
+      .platform-buttons {
+        justify-content: center
+      }
+    }
+
+    .chart {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
   }
 }
 
 @media only screen and (max-width: 768px) {
-  html, body {
-    width: min-content !important;
+
+}
+
+@media only screen and (max-width: 700px) {
+  .get-started {
+    .platform {
+      h1 {
+        font-size: 3.375rem !important;
+      }
+    }
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .get-started {
+    .platform {
+      h1 {
+        font-size: 2.375rem !important;
+      }
+    }
+  }
+}
+

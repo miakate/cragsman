@@ -1,37 +1,28 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, interval} from "rxjs";
-import {first} from "rxjs/operators";
-import {HttpClient} from "@angular/common/http";
+import {webSocket, WebSocketSubject} from 'rxjs/webSocket';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
-  public connected$ = new BehaviorSubject<boolean>(false);
-  public connState: boolean;
+  ws: WebSocketSubject<any> = webSocket('wss://ws.goembargo.com/?symbol=BTC-USDT&exchanges=bitfinex',);
 
-  constructor(private http: HttpClient) {
+  constructor() {
   }
 
   getWsData() {
-    // // URL connection
-    // const accountAndOrderAndTransfers = new WebSocket("wss://testnet-dex.binance.org/api/ws/tbnb1qtuf578qs9wfl0wh3vs0r5nszf80gvxd28hkrc");
-    //
-    // // Or Subscribe method
-    // const conn = new WebSocket("wss://testnet-dex.binance.org/api/ws");
-    // conn.onopen = function (evt) {
-    //   conn.send(JSON.stringify({
-    //     method: "subscribe",
-    //     topic: "accounts",
-    //     address: "tbnb1qtuf578qs9wfl0wh3vs0r5nszf80gvxd28hkrc"
-    //   }));
-    // }
-  }
-
-
-  connected(data: boolean) {
-    this.connState = data;
-    this.connected$.next(this.connState);
+    this.ws.subscribe(
+      msg => {
+        if (msg.status === 200) {
+          console.log('message received: ' + JSON.stringify(msg))
+        }
+      },
+      // Called whenever there is a message from the server
+      err => console.log(err),
+      // Called if WebSocket API signals some kind of error
+      () => console.log('complete')
+      // Called when connection is closed (for whatever reason)
+    )
   }
 
 }
