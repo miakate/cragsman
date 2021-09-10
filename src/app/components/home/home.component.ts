@@ -1,5 +1,4 @@
 import {ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import {DataServiceService} from "../../services/data/data-service.service";
 import {WebsocketService} from "../../services/websocket/websocket.service";
 
 @Component({
@@ -8,48 +7,59 @@ import {WebsocketService} from "../../services/websocket/websocket.service";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public selected: any;
   public exchangeData: any;
+  websiteList: any = [
+    'BTC-USDT',
+    'DASH-USDT',
+    'DOGE-BTC',
+    'DOGE-USDT',
+    'ETH-BTC',
+    'ETH-USDT',
+    'LTC-BTC',
+    'LTC-USDT',
+    'XLM-BTC',
+    'XRP-ETH',
+    'XRP-BTC',
+    'XRP-USDT',
+  ];
 
-  constructor(private cdRef: ChangeDetectorRef, private ds: DataServiceService, public ws: WebsocketService,) {
+  constructor(public ws: WebsocketService) {
   }
 
   ngOnInit() {
-    this.ws.getWsData();
-    this.ds.getExchangeData().subscribe((data: any) => {
-      this.exchangeData = data;
-      // console.log(this.exchangeData)
-    })
-    this.ds.getMarketData().subscribe((data: any) => {
-      console.log(data, 'data from nomics')
-    })
   }
+
+
+  changeWebsite(e) {
+    this.ws.getWsData(e.target.value);
+  }
+
 
   scroll(el: HTMLElement) {
     el.scrollIntoView();
   }
 
-  numberWithCommas(x) {
-    let parts = x.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    return parts.join(".");
-  }
-
-  nFormatter(num) {
-    const lookup = [
-      {value: 1, symbol: ""},
-      {value: 1e3, symbol: "k"},
-      {value: 1e6, symbol: "M"},
-      {value: 1e9, symbol: "B"},
-      {value: 1e12, symbol: "T"},
-      {value: 1e15, symbol: "P"},
-      {value: 1e18, symbol: "E"}
-    ];
-    const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-    var item = lookup.slice().reverse().find(function (item) {
-      return num >= item.value;
-    });
-    return item ? (num / item.value).toFixed(1).replace(rx, "$1") + item.symbol : "0";
-  }
+  // numberWithCommas(x) {
+  //   let parts = x.toString().split(".");
+  //   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  //   return parts.join(".");
+  // }
+  //
+  // nFormatter(num) {
+  //   const lookup = [
+  //     {value: 1, symbol: ""},
+  //     {value: 1e3, symbol: "k"},
+  //     {value: 1e6, symbol: "M"},
+  //     {value: 1e9, symbol: "B"},
+  //     {value: 1e12, symbol: "T"},
+  //     {value: 1e15, symbol: "P"},
+  //     {value: 1e18, symbol: "E"}
+  //   ];
+  //   const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+  //   var item = lookup.slice().reverse().find(function (item) {
+  //     return num >= item.value;
+  //   });
+  //   return item ? (num / item.value).toFixed(1).replace(rx, "$1") + item.symbol : "0";
+  // }
 
 }

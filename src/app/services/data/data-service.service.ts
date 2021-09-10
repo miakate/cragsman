@@ -9,18 +9,18 @@ export class DataServiceService {
 
   constructor(private http: HttpClient) {
   }
-
-  getMarketData() {
-    return this.http.get(env.apiUrl);
-  }
-
-  getExchangeData() {
-    return this.http.get(env.exchangeUrl);
-  }
-
-  getData() {
-    return this.http.get(env.url);
-
-  }
+  //
+  // getMarketData() {
+  //   return this.http.get(env.apiUrl);
+  // }
+  //
+  // getExchangeData() {
+  //   return this.http.get(env.exchangeUrl);
+  // }
+  //
+  // getData() {
+  //   return this.http.get(env.url);
+  //
+  // }
 
 }

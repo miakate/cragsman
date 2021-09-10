@@ -33,23 +33,52 @@
         </div>
       </div>
     </div>
-    <!--    <div class="exchanges">-->
-    <!--      <div class="d-flex justify-content-center justify-content-lg-center">-->
-    <!--        <img src="assets/images/bitfinex.png" alt="bitfinex" class="ml-2">-->
-    <!--        <img src="assets/images/poloniex.png" alt="poloniex" class="mt-2 ml-2">-->
-    <!--        <img src="assets/images/cexio.png" alt="cexio" class="ml-2 mt-1">-->
-    <!--        <img src="assets/images/Hitbtc.png" alt="hitbtc" class="ml-2 mb-3">-->
-    <!--        <img src="assets/images/huobi.png" alt="huobi" class="ml-2 mt-1">-->
-    <!--        <img src="assets/images/zbcom.png" alt="zbcom" class="ml-2 mb-3">-->
-    <!--      </div>-->
-    <!--      <div class="d-flex justify-content-center">-->
-    <!--        <img src="assets/images/bithub.png" alt="bithumb">-->
-    <!--        <img src="assets/images/coinbase.png" alt="coinbase">-->
-    <!--        <img src="assets/images/binnance.png" alt="binance">-->
-    <!--        <img src="assets/images/bittrex.png" alt="bittrex">-->
-    <!--      </div>-->
-    <!--    </div>-->
+    <div class="exchanges">
+      <div class="d-flex justify-content-center justify-content-lg-center w-100">
+        <img src="assets/images/bitfinex.png" alt="bitfinex" class="ml-2">
+        <img src="assets/images/poloniex.png" alt="poloniex" class="mt-2 ml-2">
+        <img src="assets/images/cexio.png" alt="cexio" class="ml-2 mt-1">
+        <img src="assets/images/Hitbtc.png" alt="hitbtc" class="ml-2 mb-3">
+        <img src="assets/images/huobi.png" alt="huobi" class="ml-2 mt-1">
+        <!--        <img src="assets/images/zbcom.png" alt="zbcom" class="ml-2 mb-3">-->
+      </div>
+      <div class="d-flex justify-content-center w-100">
+        <img src="assets/images/bithub.png" alt="bithumb">
+        <img src="assets/images/coinbase.png" alt="coinbase">
+        <img src="assets/images/binnance.png" alt="binance">
+        <img src="assets/images/bittrex.png" alt="bittrex">
+      </div>
+    </div>
   </div>
+
+  <div class="exchange-content p-5">
+    <div class="container d-flex justify-content-center align-items-center ">
+      <select class="form-select w-25 text-white" (change)="changeWebsite($event)">
+        <option *ngFor="let web of websiteList">{{web}}</option>
+      </select>
+    </div>
+
+    <div class="exchange-currency pt-5 justify-content-around d-flex" id="pot">
+      <div *ngFor="let ex of ws.myObjArray">
+
+        <div class="currency-box text-center pl-5 pr-5"
+             [ngClass]="{'bitfinex': ex.exchange === 'bitfinex',
+              'binance': ex.exchange === 'binance',
+              'cexio': ex.exchange === 'cexio',
+              'hitbtc': ex.exchange === 'hitbtc',
+              'huobi': ex.exchange === 'huobi',
+              'poloniex': ex.exchange === 'poloniex'}">
+          <div class="currency-logo p-1 m-auto">
+            <img src="assets/images/eth.png">
+          </div>
+          <h3>{{ex.price}}</h3>
+          <p>{{ex.exchange}}</p>
+          <p>{{ex.symbol}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!--COINS-->
   <!--  <div class="container-fluid pb-5 pt-5">-->
   <!--    <div class="exchange-table m-5">-->
@@ -93,86 +122,86 @@
 
 
   <!--CROLL DOWN-->
-  <!--  <div class="d-flex align-items-center justify-content-center scroll-down pt-5">-->
-  <!--    <a class="text-center" (click)="scroll(target)">-->
-  <!--      <h6>See more</h6>-->
-  <!--      <img src="./assets/icons/chevron-down.svg" alt="down">-->
-  <!--    </a>-->
-  <!--  </div>-->
+  <div class="d-flex align-items-center justify-content-center scroll-down pt-5">
+    <a class="text-center" (click)="scroll(target)">
+      <h6>See more</h6>
+      <img src="./assets/icons/chevron-down.svg" alt="down">
+    </a>
+  </div>
 
-  <!--  &lt;!&ndash;  FEATURES&ndash;&gt;-->
-  <!--  <div class="features justify-content-center align-items-center w-100 pt-5 pb-5" #target>-->
-  <!--    <div class="text-center pb-4 w-50 m-auto">-->
-  <!--      <h2 class="m-0 pb-4">Our Features</h2>-->
-  <!--      <p class="text-start ml-5">It is a long established fact that a reader will be distracted by the readable-->
-  <!--        content-->
-  <!--        of a page when looking at its layout. The point of using Lorem Ipsum</p>-->
-  <!--    </div>-->
+  <!--  FEATURES-->
+  <div class="features justify-content-center align-items-center w-100 pt-5 pb-5" #target>
+    <div class="text-center pb-4 w-50 m-auto">
+      <h2 class="m-0 pb-4">Our Features</h2>
+      <p class="text-start ml-5">It is a long established fact that a reader will be distracted by the readable
+        content
+        of a page when looking at its layout. The point of using Lorem Ipsum</p>
+    </div>
 
-  <!--    <div class="row justify-content-center align-items-center">-->
-  <!--      <div class="col-6">-->
-  <!--        <div class="d-flex m-4">-->
-  <!--          <div class="m-3">-->
-  <!--            <img src="assets/icons/eyes.svg">-->
-  <!--          </div>-->
-  <!--          <div class="m-3">-->
-  <!--            <h5>Our Vision</h5>-->
-  <!--            <p>It is a long established fact that a reader<br>-->
-  <!--              will be distracted by the readable content<br>-->
-  <!--              of a page when looking at its layout. The<br>-->
-  <!--              point of using Lorem Ipsum</p>-->
-  <!--          </div>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="col-6">-->
-  <!--        <div class="d-flex m-4">-->
-  <!--          <div class="m-3">-->
-  <!--            <img src="assets/icons/security.svg">-->
-  <!--          </div>-->
-  <!--          <div class="m-3">-->
-  <!--            <h5>Security</h5>-->
-  <!--            <p>It is a long established fact that a reader<br>-->
-  <!--              will be distracted by the readable content<br>-->
-  <!--              of a page when looking at its layout. The<br>-->
-  <!--              point of using Lorem Ipsum</p>-->
-  <!--          </div>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
+    <div class="features-value row m-0 p-0">
+      <div class="col-6 p-0">
+        <div class="d-flex">
+          <!--          <div class="m-3">-->
+          <!--            <img src="assets/icons/eyes.svg">-->
+          <!--          </div>-->
+          <div class="">
+            <h5>Our Vision</h5>
+            <p>It is a long established fact that a reader<br>
+              will be distracted by the readable content<br>
+              of a page when looking at its layout. The<br>
+              point of using Lorem Ipsum</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 p-0">
+        <div class="d-flex">
+          <!--          <div class="m-3">-->
+          <!--            <img src="assets/icons/security.svg">-->
+          <!--          </div>-->
+          <div class="">
+            <h5>Security</h5>
+            <p>It is a long established fact that a reader<br>
+              will be distracted by the readable content<br>
+              of a page when looking at its layout. The<br>
+              point of using Lorem Ipsum</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!--    <div class="row justify-content-center align-items-center">-->
-  <!--      <div class="col-6">-->
-  <!--        <div class="d-flex m-4">-->
-  <!--          <div class="m-3">-->
-  <!--            <img src="assets/icons/verification.svg">-->
-  <!--          </div>-->
-  <!--          <div class="m-3">-->
-  <!--            <h5>KYC/AML verification</h5>-->
-  <!--            <p>It is a long established fact that a reader<br>-->
-  <!--              will be distracted by the readable content<br>-->
-  <!--              of a page when looking at its layout. The<br>-->
-  <!--              point of using Lorem Ipsum</p>-->
-  <!--          </div>-->
-  <!--        </div>-->
+    <!--    <div class="row justify-content-center align-items-center">-->
+    <!--      <div class="col-6">-->
+    <!--        <div class="d-flex m-4">-->
+    <!--          <div class="m-3">-->
+    <!--            <img src="assets/icons/verification.svg">-->
+    <!--          </div>-->
+    <!--          <div class="m-3">-->
+    <!--            <h5>KYC/AML verification</h5>-->
+    <!--            <p>It is a long established fact that a reader<br>-->
+    <!--              will be distracted by the readable content<br>-->
+    <!--              of a page when looking at its layout. The<br>-->
+    <!--              point of using Lorem Ipsum</p>-->
+    <!--          </div>-->
+    <!--        </div>-->
 
-  <!--      </div>-->
-  <!--      <div class="col-6">-->
-  <!--        <div class="d-flex m-4">-->
-  <!--          <div class="m-3">-->
-  <!--            <img src="assets/icons/coming_features.svg">-->
-  <!--          </div>-->
-  <!--          <div class="m-3">-->
-  <!--            <h5>Coming Features</h5>-->
-  <!--            <p>It is a long established fact that a reader<br>-->
-  <!--              will be distracted by the readable content<br>-->
-  <!--              of a page when looking at its layout. The<br>-->
-  <!--              point of using Lorem Ipsum</p>-->
-  <!--          </div>-->
-  <!--        </div>-->
+    <!--      </div>-->
+    <!--      <div class="col-6">-->
+    <!--        <div class="d-flex m-4">-->
+    <!--          <div class="m-3">-->
+    <!--            <img src="assets/icons/coming_features.svg">-->
+    <!--          </div>-->
+    <!--          <div class="m-3">-->
+    <!--            <h5>Coming Features</h5>-->
+    <!--            <p>It is a long established fact that a reader<br>-->
+    <!--              will be distracted by the readable content<br>-->
+    <!--              of a page when looking at its layout. The<br>-->
+    <!--              point of using Lorem Ipsum</p>-->
+    <!--          </div>-->
+    <!--        </div>-->
 
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+  </div>
 
   <!--  VOLUME-->
   <!--  <div class="container-fluid hour-volume row pl-5 pr-5 pt-4 pb-3 m-0">-->

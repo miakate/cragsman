@@ -7,8 +7,6 @@
   }
 
   .get-started {
-    //margin-top: 6rem;
-
     h6 {
       opacity: 0.45;
     }
@@ -48,6 +46,84 @@
     //  }
     //}
   }
+
+  .exchange-content {
+    .currency-box {
+      border-radius: 21px;
+      position: relative;
+
+      .currency-logo {
+        left: -15px;
+        top: -15px;
+        position: absolute;
+        border-radius: 50px;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+
+    .bitfinex {
+      border: 1px solid #64BB90;
+
+      .currency-logo {
+        background-color: #64BB90;
+
+      }
+    }
+
+    .binance {
+      border: 1px solid #F3BA2F;
+
+      .currency-logo {
+        background-color: #F3BA2F;
+
+      }
+    }
+
+    .cexio {
+      border: 1px solid #5DB9B9;
+
+      .currency-logo {
+        background-color: #5DB9B9;
+      }
+    }
+
+    .hitbtc {
+      border: 1px solid #3C8EBE;
+
+      .currency-logo {
+        background-color: #3C8EBE;
+      }
+    }
+
+    .huobi {
+      border: 1px solid #48ABE9;
+
+      .currency-logo {
+        background-color: #48ABE9;
+      }
+    }
+
+    .poloniex {
+      border: 1px solid #377273;
+
+      .currency-logo {
+        background-color: #377273;
+      }
+    }
+
+    select {
+      background: var(--cgsm-dark-blue);
+      border-color: transparent;
+      //
+      //.form-select {
+      //}
+    }
+  }
+
 
 }
 
@@ -170,7 +246,9 @@
 }
 
 @media only screen and (max-width: 768px) {
-
+  .features-value {
+    display: grid !important;
+  }
 }
 
 @media only screen and (max-width: 700px) {

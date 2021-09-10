@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {NavbarMenuComponent} from './components/navbar-menu/navbar-menu.component';
 import {HomeComponent} from './components/home/home.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from '@angular/common/http';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 
@@ -23,7 +23,8 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
