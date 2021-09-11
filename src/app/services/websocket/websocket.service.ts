@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {webSocket, WebSocketSubject} from 'rxjs/webSocket';
-import {Data} from "../../models/data.model";
 import {environment as env} from '../../../environments/environment.prod';
+import {ExchangesService} from "../exchanges/exchanges.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,36 +14,9 @@ export class WebsocketService {
     'cexio',
     'hitbtc',
     'huobi',
-    'poloniex',
   ];
 
-  myObjArray = [
-    {price: 0.0000, exchange: "bitfinex", symbol: ''},
-    {price: 0.0000, exchange: "binance", symbol: ''},
-    {price: 0.0000, exchange: "cexio", symbol: ''},
-    {price: 0.0000, exchange: "hitbtc", symbol: ''},
-    {price: 0.0000, exchange: "huobi", symbol: ''},
-    {price: 0.0000, exchange: "poloniex", symbol: ''}
-  ];
-
-  constructor() {
-  }
-
-  updateItem(exchange: string, symbol) {
-
-//Find index of specific object using findIndex method.
-    let objIndex = this.myObjArray.findIndex((obj => obj.exchange == exchange));
-
-//Log object to Console.
-    console.log("Before update: ", this.myObjArray[objIndex])
-
-//Update object's name property.
-    this.myObjArray[objIndex].price = this.price;
-    this.myObjArray[objIndex].symbol = symbol;
-
-//Log object to console again.
-    console.log("After update: ", this.myObjArray[objIndex])
-
+  constructor(private es: ExchangesService) {
   }
 
   getWsData(currency) {
@@ -58,8 +31,6 @@ export class WebsocketService {
         () => console.log('complete')
       )
     }
-
-
   }
 
   calcMedian(data) {
@@ -67,14 +38,22 @@ export class WebsocketService {
     data.bids.prices.sort(function (a, b) {
       return a - b;
     });
-
     if (data.bids.prices.length % 2) {
       this.price = data.bids.prices[half];
       this.updateItem(data.exchange, data.symbol)
-      // console.log(this.dataList);
+      console.log(this.price);
       return this.price;
     } else {
       return (data.bids.prices[half - 1] + data.bids.prices[half]) / 2.0;
     }
   }
+
+  updateItem(exchange: string, symbol) {
+    this.es.getExchanges().subscribe(data => {
+      let objIndex = data.findIndex((obj => obj.exchange == exchange));
+      data[objIndex].price = this.price;
+      data[objIndex].symbol = symbol;
+    })
+  }
+
 }
