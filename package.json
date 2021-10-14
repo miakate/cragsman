@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~12.1.0-",
     "@angular/platform-browser-dynamic": "~12.1.0-",
     "@angular/router": "~12.1.0-",
+    "@types/socket.io-client": "^3.0.0",
     "angular-bootstrap-md": "^12.0.0",
     "bootstrap": "^5.1.0",
     "bootstrap-icons": "^1.5.0",
@@ -27,7 +28,10 @@
     "popper.js": "^1.16.1",
     "require": "^0.4.4",
     "rxjs": "~6.6.0",
+    "rxjs-compat": "^6.6.7",
+    "socket.io-client": "^4.2.0",
     "tslib": "^2.2.0",
+    "ws": "^8.2.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

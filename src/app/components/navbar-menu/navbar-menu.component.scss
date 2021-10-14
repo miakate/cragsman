@@ -1,11 +1,16 @@
 ////NAVBAR
 .navbar {
-  //  background: var(--cgsm-dark-blue);
-  //  padding: 35px 50px;
-  //
   img {
     width: 339px;
     height: 56px;
+  }
+
+  .dark_bg {
+    background-color: var(--cgsm-dark-blue) !important;
+  }
+
+  .pl-120 {
+    padding-left: 120px;
   }
 
   ul {
@@ -27,7 +32,6 @@
 
   .btn-light {
     width: 229px;
-    //height: 54px;
   }
 
   .btn-tr {
@@ -35,12 +39,31 @@
     font-family: 'PoppinsMedium' !important;
     border-radius: 50px;
   }
+
+  .btn-success {
+    color: var(--cgsm-dark-blue);
+    background-color: var(--cgsm-green);
+    width: 309px;
+    font-size: 1.938rem !important; //31px
+    font-family: 'PoppinsMedium' !important;
+    border-radius: 50px;
+
+    img {
+      width: 43px;
+      height: 43px;
+    }
+  }
+
 }
 
 
 @media only screen and (max-width: 1200px) {
   form {
     margin-right: 0 !important;
+  }
+
+  .pl-120 {
+    padding-left: 10px !important;
   }
 }
 
@@ -50,8 +73,11 @@
       padding-left: 0 !important;
     }
   }
+  .btn-tr {
+    padding: 0 6px !important;
+  }
   form {
-    .mr-3{
+    .mr-3 {
       margin-right: 0 !important;
     }
   }

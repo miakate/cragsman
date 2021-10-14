@@ -16,6 +16,11 @@ html {
   color: var(--cgsm-white);
 }
 
+.bg-dark {
+  background: var(--cgsm-light-green) !important;
+
+}
+
 //BUTTONS STYLE
 .btn:active:focus {
   border: none !important;

@@ -2,9 +2,7 @@
   <div class="left-img">
     <img src="assets/icons/triangle.svg" alt="triangle">
   </div>
-  <!--  <div class="right-img">-->
-  <!--    <img src="assets/icons/circle.svg" alt="circle">-->
-  <!--  </div>-->
+
   <!--  GET STARTED-->
   <div class="container-fluid pt-5">
     <div class="get-started">
@@ -33,56 +31,69 @@
         </div>
       </div>
     </div>
-    <!--    <div class="exchanges">-->
-    <!--      <div class="d-flex justify-content-center justify-content-lg-center w-100">-->
-    <!--        <img src="assets/images/bitfinex.png" alt="bitfinex">-->
-    <!--        <img src="assets/images/poloniex.png" alt="poloniex">-->
-    <!--        <img src="assets/images/cexio.png" alt="cexio">-->
-    <!--        <img src="assets/images/Hitbtc.png" alt="hitbtc">-->
-    <!--        <img src="assets/images/huobi.png" alt="huobi">-->
-    <!--        <img src="assets/images/zbcom.png" alt="zbcom">-->
-    <!--      </div>-->
-    <!--      <div class="d-flex justify-content-center w-100">-->
-    <!--        <img src="assets/images/bithub.png" alt="bithumb">-->
-    <!--        <img src="assets/images/coinbase.png" alt="coinbase">-->
-    <!--        <img src="assets/images/binnance.png" alt="binance">-->
-    <!--        <img src="assets/images/bittrex.png" alt="bittrex">-->
-    <!--      </div>-->
-    <!--    </div>-->
+    <div class="exchanges">
+      <div class="d-flex justify-content-center justify-content-lg-center w-100">
+        <img src="assets/images/bitfinex.png" alt="bitfinex">
+        <!--        <img src="assets/images/poloniex.png" alt="poloniex">-->
+        <img src="assets/images/cexio.png" alt="cexio">
+        <img src="assets/images/Hitbtc.png" alt="hitbtc">
+        <img src="assets/images/huobi.png" alt="huobi">
+        <img src="assets/images/zbcom.png" alt="zbcom">
+      </div>
+      <div class="d-flex justify-content-center w-100">
+        <img src="assets/images/bithub.png" alt="bithumb">
+        <img src="assets/images/coinbase.png" alt="coinbase">
+        <img src="assets/images/binnance.png" alt="binance">
+        <img src="assets/images/bittrex.png" alt="bittrex">
+      </div>
+    </div>
   </div>
 
+  <!--EXCHANGES-->
   <div class="exchange-content p-5">
     <div class="d-flex align-items-center justify-content-center">
       <select class="form-select w-25 text-white text-center" (change)="changeCurrency($event)">
+        <option> Currency</option>
         <option *ngFor="let web of currency">{{web}}</option>
       </select>
     </div>
-
     <div class="exchange-currency pt-5 justify-content-around">
-      <div *ngFor="let ex of exchanges">
 
-        <div class="currency-box text-center align-items-center pl-5 pr-5 mt-5"
-             [ngClass]="{'bitfinex': ex.exchange === 'bitfinex',
+      <div class="slider">
+        <div class="slide-track">
+          <div *ngFor="let ex of exchanges" class="slider">
+            <div class="currency-box text-center align-items-center pl-5 pr-5 mt-5 ml-4 mr-4"
+                 [ngClass]="{'bitfinex': ex.exchange === 'bitfinex',
               'binance': ex.exchange === 'binance',
               'cexio': ex.exchange === 'cexio',
               'hitbtc': ex.exchange === 'hitbtc',
               'huobi': ex.exchange === 'huobi'}">
-          <div class="currency-logo p-1 m-auto">
-            <img src="assets/images/bitfinex_logo.png" *ngIf=" ex.exchange === 'bitfinex'">
-            <img src="assets/images/binance_logo.png" *ngIf=" ex.exchange === 'binance'">
-            <img src="assets/images/cexio_logo.svg" *ngIf=" ex.exchange === 'cexio'">
-            <img src="assets/images/hitbtc_logo.png" *ngIf=" ex.exchange === 'hitbtc'">
-            <img src="assets/images/huobi.png" *ngIf=" ex.exchange === 'huobi'">
-            <img src="assets/images/polonex_logo.png" *ngIf=" ex.exchange === 'poloniex'">
-            <img src="assets/images/bittrex_logo.png" *ngIf=" ex.exchange === 'bittrex'">
+              <div class="currency-logo p-1 m-auto">
+                <img src="assets/images/bitfinex_logo.png" *ngIf=" ex.exchange === 'bitfinex'">
+                <img src="assets/images/binance_logo.png" *ngIf=" ex.exchange === 'binance'">
+                <img src="assets/images/cexio_logo.svg" *ngIf=" ex.exchange === 'cexio'">
+                <img src="assets/images/hitbtc_logo.png" *ngIf=" ex.exchange === 'hitbtc'">
+                <img src="assets/images/huobi.png" *ngIf=" ex.exchange === 'huobi'">
+                <img src="assets/images/polonex_logo.png" *ngIf=" ex.exchange === 'poloniex'">
+                <img src="assets/images/bittrex_logo.png" *ngIf=" ex.exchange === 'bittrex'">
+              </div>
+              <div class="d-flex justify-content-center align-content-between pt-3">
+
+                <div *ngIf="ws.msg?.result">
+                  <h3>{{ws.msg.result.asks.prices[4]}}</h3>
+                  <h5>{{ws.msg.result.symbol}}</h5>
+                </div>
+
+                <div *ngIf="!ws.msg?.result">
+                  <h3>0.000</h3>
+                </div>
+
+              </div>
+            </div>
           </div>
-          <div class="d-flex justify-content-center pt-3">
-            <h3>{{ex.price }}</h3>
-            <h3>{{ex.symbol}}</h3>
-          </div>
-          <p></p>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -155,23 +166,24 @@
       </div>
     </div>
   </div>
+
   <!--  VOLUME-->
   <div class="container-fluid hour-volume justify-content-around pt-5 pb-5">
     <div class="pt-3" align="center">
       <h6>24h Volume</h6>
-      <h5>$1,350,427,558</h5>
+      <h5>{{ds.volume?.data?.global["1d_volume"]}}</h5>
     </div>
     <div class="pt-3" align="center">
       <h6>24h Trades</h6>
-      <h5>$1,350,427,558</h5>
+      <h5>{{ds.volume?.data?.global["1d_trades"]}}</h5>
     </div>
     <div class="pt-3" align="center">
       <h6>30D Volume</h6>
-      <h5>$1,350,427,558</h5>
+      <h5>{{ds.volume?.data?.global["30d_volume"]}}</h5>
     </div>
     <div class="pt-3" align="center">
       <h6>30D Trades</h6>
-      <h5>$1,350,427,558</h5>
+      <h5>{{ds.volume?.data?.global["30d_trades"]}}</h5>
     </div>
   </div>
 
@@ -187,10 +199,10 @@
     <div class="row m-0 p-5">
 
       <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 news-img">
-        <img src="assets/images/earth.png" class="pl-3 pr-3 pt-4">
+        <img src="assets/images/earth.png" class="pl-2 pr-2 pt-4 pb-4">
       </div>
 
-      <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 pt-5">
+      <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 pt-4">
         <h2>Lorem Ipsum is simply dummy text of the printing</h2>
         <h4 class="pt-4">It is a long established fact that a reader will be distracted by the readable content of a
           page when
