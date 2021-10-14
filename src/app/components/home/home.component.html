@@ -69,13 +69,14 @@
               'hitbtc': ex.exchange === 'hitbtc',
               'huobi': ex.exchange === 'huobi'}">
               <div class="currency-logo p-1 m-auto">
-                <img src="assets/images/bitfinex_logo.png" *ngIf=" ex.exchange === 'bitfinex'">
-                <img src="assets/images/binance_logo.png" *ngIf=" ex.exchange === 'binance'">
-                <img src="assets/images/cexio_logo.svg" *ngIf=" ex.exchange === 'cexio'">
-                <img src="assets/images/hitbtc_logo.png" *ngIf=" ex.exchange === 'hitbtc'">
-                <img src="assets/images/huobi.png" *ngIf=" ex.exchange === 'huobi'">
-                <img src="assets/images/polonex_logo.png" *ngIf=" ex.exchange === 'poloniex'">
-                <img src="assets/images/bittrex_logo.png" *ngIf=" ex.exchange === 'bittrex'">
+                <img [src]="'./assets/images/' + ex.exchange + '.png'" alt="">
+                <!--                <img src="assets/images/bitfinex_logo.png" *ngIf=" ex.exchange === 'bitfinex'">-->
+                <!--                <img src="assets/images/binance_logo.png" *ngIf=" ex.exchange === 'binance'">-->
+                <!--                <img src="assets/images/cexio_logo.svg" *ngIf=" ex.exchange === 'cexio'">-->
+                <!--                <img src="assets/images/hitbtc_logo.png" *ngIf=" ex.exchange === 'hitbtc'">-->
+                <!--                <img src="assets/images/huobi.png" *ngIf=" ex.exchange === 'huobi'">-->
+                <!--                <img src="assets/images/polonex_logo.png" *ngIf=" ex.exchange === 'poloniex'">-->
+                <!--                <img src="assets/images/bittrex_logo.png" *ngIf=" ex.exchange === 'bittrex'">-->
               </div>
               <div class="d-flex justify-content-center align-content-between pt-3">
 
