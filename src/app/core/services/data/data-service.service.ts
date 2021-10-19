@@ -12,9 +12,8 @@ export class DataServiceService {
   constructor(private http: HttpClient) {
   }
 
-  getGlobalVoulme() {
+  getGlobalVolume() {
     this.http.get(environment.apiUrl).subscribe(data => {
-      // console.log(data);
       this.volume = data
     })
   }

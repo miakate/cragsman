@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     this.es.getExchanges().subscribe(data => {
       this.exchanges = data;
     })
-    this.ds.getGlobalVoulme();
+    this.ds.getGlobalVolume();
   }
 
   changeCurrency(e) {
