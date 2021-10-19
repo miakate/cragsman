@@ -52,8 +52,9 @@
 
   .exchanges {
     img {
-      width: 163px;
-      height: 52px;
+      margin: 0 15px;
+      width: 200px;
+      height: 70px;
     }
   }
 
@@ -184,9 +185,6 @@
     select {
       background: var(--cgsm-dark-blue);
       border-color: transparent;
-    }
-
-    select {
       background-image: linear-gradient(45deg, transparent 50%, white 60%),
       linear-gradient(135deg, white 40%, transparent 50%) !important;
       background-position: calc(100% - 30px) 14px,

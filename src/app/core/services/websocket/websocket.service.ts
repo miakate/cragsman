@@ -13,20 +13,36 @@ export class WebsocketService {
   }
 
   connect(currency) {
-    this.subject = webSocket(env.wsUrl + currency + '&exchanges=bitfinex%2Ccexio%2Chitbtc%2Chuobi%2Czb%2Cbithumb%2Ccoinbase%2Cbinance%2Cbittrex')
+    const wbUrl = env.wsUrl + currency + env.exUrl;
+    this.subject = webSocket(wbUrl)
     this.subject.subscribe(
       (msg: any) => {
-        this.msg = msg
-        console.log('message received: ' + msg.result.symbol);
+        this.msg = msg;
+        // const prices = msg.result.asks.prices;
+        // msg.result.asks.prices = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
+        // this.countAverange(msg.result.asks.prices)
+        // const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+        //
+        // average([99, 45, 26, 7, 11, 122, 22]);
+        // console.log(average)
       }, // Called whenever there is a message from the server.
       err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
       () => console.log('complete') // Called when connection is closed (for whatever reason).
     );
   }
 
+  countAverange(arr) {
+    const prices = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
+    console.log(prices)
+  }
+
   disconnect() {
-    this.subject.unsubscribe();
-    console.log('disconnected');
+    console.log('DISCONNECTED:');
+    console.log(this.subject);
+    if (this.subject !== undefined && this.subject) {
+      this.subject.unsubscribe();
+      console.log('ENTER IF DISCONNECTED')
+    }
     return
   }
 

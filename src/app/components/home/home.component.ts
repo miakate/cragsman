@@ -12,7 +12,6 @@ import {CurrencyService} from "../../core/services/currency/currency.service";
 export class HomeComponent implements OnInit {
   public currency: any;
   public exchanges: any;
-  public volume: any;
 
   constructor(public ws: WebsocketService,
               public es: ExchangesService,
@@ -31,6 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   changeCurrency(e) {
+    this.ws.disconnect();
     this.ws.connect(e.target.value);
   }
 
