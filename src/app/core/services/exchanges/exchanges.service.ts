@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
+import {Exchange} from '../../interfaces/exchanges.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExchangesService {
-  private exchanges = new BehaviorSubject<object[]>([
+  private exchanges = new BehaviorSubject<Exchange[]>([
     {id: 0, price: '0.000', exchange: "bitfinex", symbol: '', image: 'news_image_3@2x.png',},
     {id: 1, price: '0.000', exchange: "binance", symbol: '', image: 'news_image_3@2x.png',},
     {id: 2, price: '0.000', exchange: "bittrex", symbol: '', image: 'news_image_3@2x.png',},
@@ -22,7 +23,7 @@ export class ExchangesService {
   constructor() {
   }
 
-  getExchanges(): Observable<any[]> {
+  getExchanges(): Observable<Exchange[]> {
     return this.exchanges$;
   }
 }

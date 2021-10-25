@@ -1,24 +1,25 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
+import {Currency} from '../../interfaces/exchanges.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrencyService {
 
-  private currency = new BehaviorSubject<any[]>([
-    'BTC-USDT',
-    'DASH-USDT',
-    'DOGE-BTC',
-    'DOGE-USDT',
-    'ETH-BTC',
-    'ETH-USDT',
-    'LTC-BTC',
-    'LTC-USDT',
-    'XLM-BTC',
-    'XRP-ETH',
-    'XRP-BTC',
-    'XRP-USDT',
+  private currency = new BehaviorSubject<Currency[]>([
+    { name: 'BTC-USDT' },
+    { name: 'DASH-USDT' },
+    { name: 'DOGE-BTC' },
+    { name: 'DOGE-USDT' },
+    { name: 'ETH-BTC' },
+    { name: 'ETH-USDT' },
+    { name: 'LTC-BTC' },
+    { name: 'LTC-USDT' },
+    { name: 'XLM-BTC' },
+    { name: 'XRP-ETH' },
+    { name: 'XRP-BTC' },
+    { name: 'XRP-USDT' }
   ]);
 
   private currency$ = this.currency.asObservable();
@@ -26,7 +27,7 @@ export class CurrencyService {
   constructor() {
   }
 
-  getCurrency(): Observable<any[]> {
+  getCurrency(): Observable<Currency[]> {
     return this.currency$;
   }
 
