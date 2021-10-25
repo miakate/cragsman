@@ -3,6 +3,7 @@ import {DataServiceService} from "../../core/services/data/data-service.service"
 import {WebsocketService} from "../../core/services/websocket/websocket.service";
 import {ExchangesService} from "../../core/services/exchanges/exchanges.service";
 import {CurrencyService} from "../../core/services/currency/currency.service";
+import {Currency, Exchange} from 'src/app/core/interfaces/exchanges.interface';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,11 @@ import {CurrencyService} from "../../core/services/currency/currency.service";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public currency: any;
-  public exchanges: any;
+  public currency: Currency[];
+  public exchanges: Exchange[];
+  public firstExchangesList: Exchange[];
+  public secondExchangesList: Exchange[];
+  public exchangesLists: Exchange[][] = [];
 
   constructor(public ws: WebsocketService,
               public es: ExchangesService,
@@ -25,6 +29,10 @@ export class HomeComponent implements OnInit {
     })
     this.es.getExchanges().subscribe(data => {
       this.exchanges = data;
+      this.firstExchangesList = this.exchanges.slice(0,4);
+      this.secondExchangesList = this.exchanges.slice(4);
+      this.exchangesLists.push(this.firstExchangesList);
+      this.exchangesLists.push(this.secondExchangesList);
     })
     this.ds.getGlobalVolume();
   }
