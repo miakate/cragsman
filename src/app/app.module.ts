@@ -9,6 +9,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from '@angular/common/http';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
+import {CoreModule} from "./core/core.module";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
     FormsModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

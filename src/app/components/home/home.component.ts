@@ -4,6 +4,7 @@ import {WebsocketService} from "../../core/services/websocket/websocket.service"
 import {ExchangesService} from "../../core/services/exchanges/exchanges.service";
 import {CurrencyService} from "../../core/services/currency/currency.service";
 import {Currency, Exchange} from 'src/app/core/interfaces/exchanges.interface';
+import {FormattingService} from "../../core/services/formatting/formatting.service";
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
   constructor(public ws: WebsocketService,
               public es: ExchangesService,
               public cs: CurrencyService,
-              public ds: DataServiceService) {
+              public ds: DataServiceService,
+              public fs: FormattingService) {
   }
 
   ngOnInit() {
@@ -29,7 +31,7 @@ export class HomeComponent implements OnInit {
     })
     this.es.getExchanges().subscribe(data => {
       this.exchanges = data;
-      this.firstExchangesList = this.exchanges.slice(0,4);
+      this.firstExchangesList = this.exchanges.slice(0, 4);
       this.secondExchangesList = this.exchanges.slice(4);
       this.exchangesLists.push(this.firstExchangesList);
       this.exchangesLists.push(this.secondExchangesList);

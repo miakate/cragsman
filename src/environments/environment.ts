@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
+  //ws api, for exchanges
   wsUrl: 'wss://ws.cragsmantech.com/?symbol=BTC-USDT&exchanges=bitfinex%2Ccexio%2Chitbtc%2Chuobi%2Czb%2Cbithumb%2Ccoinbase%2Cbinance%2Cbittrex',
+  //api for global volumes
   apiUrl: 'https://api.lunarcrush.com/v2?data=exchanges&key=pjkfanzc7ug8g27kb0pmo&limit=5&order_by=1d_trades'
 }
 /*
@@ -15,11 +17,3 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
-
-
-// API KEYS
-// bitfinexApiKey: 'onIeduN6m4epBWJcEc81nd5FSVLZJnG9uibxKUszkhM',
-// bitfinexSecretApiKey: 'b2E6RmoTCs75PSDg385YG65jnbFTkLw4QhaXJTqW3rK',
-// lunarcrush: '93vllp0nhxlvrtk8emhhar'
-// apiUrl: 'https://api.nomics.com/v1/',
-// currencies: 'BTC,ETH,USD,SOL,XRP,DOT,LUNA'

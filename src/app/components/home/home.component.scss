@@ -27,7 +27,6 @@
         color: var(--cgsm-dark-blue);
         background-color: var(--cgsm-green);
         width: 309px;
-        //height: 96px;
 
         img {
           width: 43px;
@@ -37,17 +36,9 @@
 
       .btn-tr {
         margin-left: 15px;
-        //height: 96px;
         width: max-content;
       }
     }
-
-    //.chart {
-    //  img {
-    //    width: 858px;
-    //    height: 589px;
-    //  }
-    //}
   }
 
   .exchanges {
@@ -137,7 +128,31 @@
       }
     }
 
-    .poloniex {
+    .zb {
+      border: 1px solid #377273;
+
+      .currency-logo {
+        background-color: #377273;
+      }
+    }
+
+    .bithumb {
+      border: 1px solid #377273;
+
+      .currency-logo {
+        background-color: #377273;
+      }
+    }
+
+    .coinbase {
+      border: 1px solid #377273;
+
+      .currency-logo {
+        background-color: #377273;
+      }
+    }
+
+    .bittrex {
       border: 1px solid #377273;
 
       .currency-logo {

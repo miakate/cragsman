@@ -18,17 +18,10 @@ export class WebsocketService {
     this.subject.subscribe(
       (msg: any) => {
         this.msg = msg;
-        // this.average(this.msg.result.asks.prices)
       }, // Called whenever there is a message from the server.
       err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
       () => console.log('complete') // Called when connection is closed (for whatever reason).
     );
-  }
-
-  average(times) {
-    const sum = times.reduce((a, b) => a + b, 0);
-    const avg = (sum / times.length) || 0;
-    // console.log(`The sum is: ${sum}. The average is: ${avg}.`);
   }
 
   disconnect() {
