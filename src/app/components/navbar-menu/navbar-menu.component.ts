@@ -19,4 +19,12 @@ export class NavbarMenuComponent implements OnInit {
     const scrollPos = document.documentElement.scrollTop;
     this.scrolled = scrollPos <= 80;
   };
+
+  signin() {
+    window.location.href = "https://trade.cragsmantech.com/sessions/signin";
+  }
+
+  signup() {
+    window.location.href = "https://trade.cragsmantech.com/sessions/signup";
+  }
 }

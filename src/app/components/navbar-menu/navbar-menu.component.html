@@ -21,9 +21,8 @@
 
       </ul>
       <form class="d-flex align-items-center mr-5" *ngIf="scrolled">
-        <button type="button" class="btn btn-tr text-green mr-3  pt-3 pb-3">Log In</button>
-        <button type="button" class="btn btn-light btn-lg pt-3 pb-3">Create Account
-        </button>
+        <button type="button" class="btn btn-tr text-green mr-3  pt-3 pb-3" (click)="signin()">Log In</button>
+        <button type="button" class="btn btn-light btn-lg pt-3 pb-3" (click)="signup()">Create Account</button>
       </form>
       <form class="d-flex align-items-center mr-5" *ngIf="!scrolled">
         <button type="button" class="btn btn-lg btn-success pl-2 pr-2 pb-2 pt-2">
