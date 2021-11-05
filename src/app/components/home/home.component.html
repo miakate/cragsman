@@ -159,19 +159,19 @@
   <div class="container-fluid hour-volume justify-content-around pt-5 pb-5">
     <div class="pt-3" align="center">
       <h6>24h Volume</h6>
-      <h5>${{fs.numberWithCommas((ds.volume?.data?.global["1d_volume"]))}}</h5>
+      <h5>${{(ds.volume?.data?.global["1d_volume"] | number:'4.1-5')}}</h5>
     </div>
     <div class="pt-3" align="center">
       <h6>24h Trades</h6>
-      <h5>${{fs.numberWithCommas((ds.volume?.data?.global["1d_trades"]))}}</h5>
+      <h5>${{(ds.volume?.data?.global["1d_trades"] | number:'4.1-5')}}</h5>
     </div>
     <div class="pt-3" align="center">
       <h6>30D Volume</h6>
-      <h5>${{fs.numberWithCommas((ds.volume?.data?.global["30d_volume"]))}}</h5>
+      <h5>${{(ds.volume?.data?.global["30d_volume"] | number:'4.1-5')}}</h5>
     </div>
     <div class="pt-3" align="center">
       <h6>30D Trades</h6>
-      <h5>${{fs.numberWithCommas((ds.volume?.data?.global["30d_trades"]))}}</h5>
+      <h5>${{(ds.volume?.data?.global["30d_trades"] | number:'4.1-5')}}</h5>
     </div>
   </div>
   <!--NEWS-->
