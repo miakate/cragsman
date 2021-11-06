@@ -1,0 +1,137 @@
+@import "../../../../scss/media/home-media";
+
+.exchange-content {
+  //  @mixin white-gradient {
+  //    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  //  }
+  //
+  //  $animationSpeed: 40s;
+  //
+  //  // Animation
+  //  @keyframes scroll {
+  //    0% {
+  //      transform: translateX(0);
+  //    }
+  //    100% {
+  //      transform: translateX(calc(-250px * 7))
+  //    }
+  //  }
+
+  .exchange-currency {
+    .currency-row {
+      width: fit-content;
+      padding: 0 50px;
+
+      .currency-box {
+        border-radius: 21px;
+        position: relative;
+
+        .currency-logo {
+          left: -15px;
+          top: -15px;
+          position: absolute;
+          border-radius: 50px;
+
+          img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  .bitfinex {
+    border: 1px solid #64BB90;
+
+    .currency-logo {
+      background-color: #64BB90;
+
+    }
+  }
+
+  .binance {
+    border: 1px solid #F3BA2F;
+
+    .currency-logo {
+      background-color: #F3BA2F;
+    }
+  }
+
+  .cexio {
+    border: 1px solid #5DB9B9;
+
+    .currency-logo {
+      background-color: #5DB9B9;
+    }
+  }
+
+  .hitbtc {
+    border: 1px solid #ffffff;
+
+    .currency-logo {
+      background-color: #ffffff;
+    }
+  }
+
+  .huobi {
+    border: 1px solid #ffffff;
+
+    .currency-logo {
+      background-color: #ffffff;
+    }
+  }
+
+  .zb {
+    border: 1px solid #FFFFFF;
+
+    .currency-logo {
+      background-color: #FFFFFF;
+    }
+  }
+
+  .bithumb {
+    border: 1px solid #ffffff;
+
+    .currency-logo {
+      background-color: #ffffff;
+    }
+  }
+
+  .coinbase {
+    border: 1px solid #ffffff;
+
+    .currency-logo {
+      background-color: #ffffff;
+    }
+  }
+
+  .bittrex {
+    border: 1px solid #377273;
+
+    .currency-logo {
+      background-color: #377273;
+    }
+  }
+
+  select {
+    background: var(--cgsm-dark-blue);
+    border-color: transparent;
+    background-image: linear-gradient(45deg, transparent 50%, white 60%),
+    linear-gradient(135deg, white 40%, transparent 50%) !important;
+    background-position: calc(100% - 30px) 14px,
+    calc(100% - 20px) 14px,
+    100% 0;
+    background-size: 10px 10px,
+    10px 10px;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+}
+
+//@media only screen and (max-width: 1200px) {
+//  .currency-row {
+//    padding: 0;
+//  }
+//}

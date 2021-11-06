@@ -13,9 +13,7 @@ export class DataServiceService {
   }
 
   getGlobalVolume() {
-    this.http.get(environment.apiUrl).subscribe(data => {
-      this.volume = data
-    })
+   return this.http.get(environment.apiUrl)
   }
 
 }

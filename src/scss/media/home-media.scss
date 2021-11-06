@@ -20,6 +20,11 @@
       margin-top: 6rem !important;
     }
   }
+  .exchange-currency {
+    .currency-row {
+      padding: 0 !important;
+    }
+  }
   .news {
     h2 {
       font-size: 2rem !important;
@@ -40,9 +45,7 @@
       }
     }
   }
-  .exchange-currency {
-    //display: grid !important;
-  }
+
   .news {
     h2 {
       font-size: 1.5rem !important;

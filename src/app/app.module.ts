@@ -10,6 +10,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from '@angular/common/http';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import {CoreModule} from "./core/core.module";
+import {ExchangesComponent} from './components/home/exchanges/exchanges.component';
+import {VolumeComponent} from './components/home/volume/volume.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import {CoreModule} from "./core/core.module";
     AppComponent,
     NavbarMenuComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    ExchangesComponent,
+    VolumeComponent
   ],
   imports: [
     BrowserModule,
