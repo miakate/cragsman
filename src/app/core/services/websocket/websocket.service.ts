@@ -18,18 +18,16 @@ export class WebsocketService {
     this.subject.subscribe(
       (msg: any) => {
         this.msg = msg;
-      }, // Called whenever there is a message from the server.
-      err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      () => console.log('complete') // Called when connection is closed (for whatever reason).
-    );
+      },
+      err => console.log(err),
+      () => console.log('complete')
+    )
+    ;
   }
 
   disconnect() {
-    // console.log('DISCONNECTED:');
-    console.log(this.subject);
     if (this.subject !== undefined && this.subject) {
       this.subject.unsubscribe();
-      // console.log('ENTER IF DISCONNECTED')
     }
     return
   }

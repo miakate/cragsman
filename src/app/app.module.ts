@@ -21,7 +21,7 @@ import {VolumeComponent} from './components/home/volume/volume.component';
     HomeComponent,
     FooterComponent,
     ExchangesComponent,
-    VolumeComponent
+    VolumeComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +30,8 @@ import {VolumeComponent} from './components/home/volume/volume.component';
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
-    CoreModule
+    CoreModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
