@@ -19,7 +19,7 @@ export class VolumeComponent implements OnInit {
     this.ds.getGlobalVolume().subscribe((data: any) => {
       this.dailyVolume = data.data.global['1d_volume'];
       this.dailyTrades = data.data.global['1d_trades'];
-      this.monthlyVolume = +(data.data.global['30d_volume']).slice(0, 16);
+      this.monthlyVolume = +(data.data.global['30d_volume']).slice(0, 13);
       this.monthlyTrades = data.data.global['30d_trades'];
     });
   }
