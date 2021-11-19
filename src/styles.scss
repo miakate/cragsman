@@ -7,6 +7,9 @@
 /* Importing Theme file. */
 @import "scss/theme";
 
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
 html {
   width: fit-content;
 }
@@ -51,6 +54,14 @@ html {
 
 .pl-140 {
   padding-left: 140px !important;
+}
+
+.modal-backdrop.show {
+  opacity: 0 !important;
+}
+
+.modal-content {
+  margin-top: 150px;
 }
 
 //MEDIA

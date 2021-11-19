@@ -12,6 +12,8 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
 import {CoreModule} from "./core/core.module";
 import {ExchangesComponent} from './components/home/exchanges/exchanges.component';
 import {VolumeComponent} from './components/home/volume/volume.component';
+import { VideoPopupComponent } from './components/home/video-popup/video-popup.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import {VolumeComponent} from './components/home/volume/volume.component';
     FooterComponent,
     ExchangesComponent,
     VolumeComponent,
+    VideoPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import {VolumeComponent} from './components/home/volume/volume.component';
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
     CoreModule,
+    NgbModule,
 
   ],
   providers: [],

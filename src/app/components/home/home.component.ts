@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormattingService} from "../../core/services/formatting/formatting.service";
+import {VideoPopupComponent} from "./video-popup/video-popup.component";
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,9 @@ import {FormattingService} from "../../core/services/formatting/formatting.servi
 })
 export class HomeComponent implements OnInit {
 
-
-  constructor() {
+  constructor(
+    private modalService: NgbModal,
+  ) {
   }
 
   ngOnInit() {
@@ -20,4 +22,8 @@ export class HomeComponent implements OnInit {
     el.scrollIntoView();
   }
 
+  openVideoPopup(): void {
+    const modalRef = this.modalService.open(VideoPopupComponent,);
+    // modalRef.componentInstance.modalInfo = message;
+  }
 }
