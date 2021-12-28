@@ -1,0 +1,94 @@
+.pl-257 {
+  padding-left: 200px !important;
+}
+
+h1 {
+  font-size: 6.25rem;
+  font-family: "PoppinsRegular";
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1.375rem;
+  font-family: "PoppinsRegular";
+  font-weight: bold;
+  cursor: pointer;
+}
+
+small {
+  font-family: "PoppinsRegular";
+  font-size: 1rem;
+}
+
+.card-body {
+  border-left: 1px solid var(--coef-green-dark);
+  margin: 20px 0 20px 46px;
+  padding: 0 0 0 36px;
+  line-height: 2.188rem;
+  font-family: 'PoppinsRegular';
+  color: var(--coef-grey);
+  font-size: 1rem;
+}
+
+hr {
+  margin: 24px 0;
+  height: 0.5px;
+}
+
+.collapsed {
+  .minus-plus {
+    background-image: url("~src/assets/icons/plus.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.minus-plus {
+  width: 27px;
+  height: 27px;
+  background-image: url("~src/assets/icons/minus.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.question-heading {
+  .heading-text {
+    margin-left: 20px;
+    font-family: 'PoppinsBold';
+    font-size: 1.275rem;
+  }
+}
+
+
+a {
+  color: var(--coef-green-dark) !important;
+  cursor: pointer !important;
+}
+
+@media only screen and (max-width: 1500px) {
+  .pl-257 {
+    padding-left: 58px !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .col-4 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .pl-257 {
+    padding-left: 20px !important;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .row {
+    margin-right: 0 !important;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+}

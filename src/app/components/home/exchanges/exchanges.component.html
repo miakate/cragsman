@@ -5,7 +5,7 @@
       <option *ngFor="let c of currency">{{c.name}}</option>
     </select>
   </div>
-  <div class="row exchange-currency pt-5 justify-content-around">
+  <div class="row exchange-currency pt-5 justify-content-around m-0">
     <div *ngFor="let ex of exchanges" class="currency-row">
       <div class="currency-box text-center align-items-center pl-5 pr-5 mt-5 ml-4 mr-4" [ngClass]="{
                                                             'bitfinex': ex.exchange === 'bitfinex',

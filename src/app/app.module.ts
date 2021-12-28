@@ -14,6 +14,8 @@ import {ExchangesComponent} from './components/home/exchanges/exchanges.componen
 import {VolumeComponent} from './components/home/volume/volume.component';
 import { VideoPopupComponent } from './components/home/video-popup/video-popup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ExchangesComponent,
     VolumeComponent,
     VideoPopupComponent,
+    PrivacyPolicyComponent,
+    TermsConditionsComponent,
   ],
   imports: [
     BrowserModule,

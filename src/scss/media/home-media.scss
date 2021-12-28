@@ -45,8 +45,11 @@
     }
 
     h4 {
-      font-size: 1rem;
+      font-size: 1rem !important;
     }
+  }
+  .w-50 {
+    width: 80% !important;
   }
 }
 
@@ -56,9 +59,26 @@
       h1 {
         font-size: 2.375rem !important;
       }
+
+      .btn {
+        padding: 1rem 0 !important;
+      }
+
+      .btn-success {
+        .pt-4 {
+          padding-top: 1rem
+        }
+      }
     }
   }
+  .exchanges {
+    padding-top: 50px !important;
 
+    img {
+      width: 150px !important;
+      height: 60px !important;
+    }
+  }
   .news {
     h2 {
       font-size: 1.5rem !important;
@@ -66,8 +86,11 @@
     }
 
     h4 {
-      font-size: 1rem !important;
+      font-size: .8rem !important;
     }
+  }
+  .w-50 {
+    width: 75% !important;
   }
 }
 
@@ -83,10 +106,12 @@
 
       h6 {
         padding-right: 50px;
+        font-size: 1.5rem !important;
       }
 
       .platform-buttons {
-        justify-content: center
+        justify-content: center;
+
       }
     }
 
@@ -95,6 +120,8 @@
       padding-top: 0 !important;
     }
   }
+
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -108,9 +135,7 @@
   .hour-volume {
     display: grid !important;
   }
-  .w-50 {
-    width: 75% !important;
-  }
+
 }
 
 @media only screen and (max-width: 700px) {
@@ -129,6 +154,27 @@
       h1 {
         font-size: 2.375rem !important;
       }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 375px) {
+  .get-started {
+    .platform {
+
+    }
+  }
+  .features {
+    .exchange-value {
+      .m-4 {
+        margin: 0 !important;
+      }
+
+    }
+    p {
+      padding-right: 1rem;
+
     }
   }
 }
