@@ -12,10 +12,11 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
 import {CoreModule} from "./core/core.module";
 import {ExchangesComponent} from './components/home/exchanges/exchanges.component';
 import {VolumeComponent} from './components/home/volume/volume.component';
-import { VideoPopupComponent } from './components/home/video-popup/video-popup.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
-import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
+import {VideoPopupComponent} from './components/home/video-popup/video-popup.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {PrivacyPolicyComponent} from './components/privacy-policy/privacy-policy.component';
+import {TermsConditionsComponent} from './components/terms-conditions/terms-conditions.component';
+import {YouTubePlayerModule} from "@angular/youtube-player";
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { TermsConditionsComponent } from './components/terms-conditions/terms-co
     ReactiveFormsModule,
     CoreModule,
     NgbModule,
+    YouTubePlayerModule,
 
   ],
   providers: [],

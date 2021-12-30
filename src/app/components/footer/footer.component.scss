@@ -9,4 +9,18 @@
   h5 {
     font-family: 'PoppinsRegular' !important;
   }
+
+  .social-links {
+    img {
+      height: 35px;
+      cursor: pointer;
+    }
+  }
+
+  a {
+    cursor: pointer;
+    font-size: 1.125rem !important; //18px
+    font-family: 'PoppinsRegular' !important;
+    color: var(--cgsm-white);
+  }
 }

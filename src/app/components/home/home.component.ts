@@ -8,6 +8,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  videoUrl = 'O1z4HsLbkrs';
 
   constructor(
     private modalService: NgbModal,
@@ -26,4 +27,10 @@ export class HomeComponent implements OnInit {
     const modalRef = this.modalService.open(VideoPopupComponent,);
     // modalRef.componentInstance.modalInfo = message;
   }
+
+  // openVideoPopup(videoSource): void {
+  //   const modalRef = this.modalService.open(VideoPopupComponent, {size: 'md'});
+  //   modalRef.componentInstance.modalInfo = videoSource;
+  // }
+
 }
