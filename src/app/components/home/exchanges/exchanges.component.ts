@@ -12,6 +12,7 @@ import {Currency, Exchange} from "../../../core/interfaces/exchanges.interface";
 export class ExchangesComponent implements OnInit {
   public currency: Currency[];
   public exchanges: Exchange[];
+  selectedValue = 'BTC-USDT';
 
   constructor(
     public ws: WebsocketService,
@@ -21,6 +22,7 @@ export class ExchangesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.ws.connect(this.selectedValue);
     this.cs.getCurrency().subscribe(data => {
       this.currency = data
     })

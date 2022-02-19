@@ -22,7 +22,6 @@ export class WebsocketService {
       err => console.log(err),
       () => console.log('complete')
     )
-    ;
   }
 
   disconnect() {

@@ -1,6 +1,6 @@
 <div class="exchange-content p-5">
   <div class="d-flex align-items-center justify-content-center pt-5">
-    <select class="form-select w-25 text-white text-center" (change)="changeCurrency($event)">
+    <select [(ngModel)]="selectedValue" class="form-select w-25 text-white text-center" (change)="changeCurrency($event)">
       <option>Choose Currency</option>
       <option *ngFor="let c of currency">{{c.name}}</option>
     </select>
