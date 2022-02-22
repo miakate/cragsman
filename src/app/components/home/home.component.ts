@@ -28,6 +28,10 @@ export class HomeComponent implements OnInit {
     // modalRef.componentInstance.modalInfo = message;
   }
 
+  signup() {
+    window.location.href = "https://trade.cragsmantech.com/sessions/signup";
+  }
+
   // openVideoPopup(videoSource): void {
   //   const modalRef = this.modalService.open(VideoPopupComponent, {size: 'md'});
   //   modalRef.componentInstance.modalInfo = videoSource;
